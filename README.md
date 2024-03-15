@@ -5,7 +5,7 @@ This repository contains all of the scripts that were developed for the Northern
 # Directory
 The purpose of this directory is to easily navigate to specific figures from the manuscript so that you can more easily find detailed information about the scripts that went into creating each figure.
 ## Figures
-1. [Figure 1](#Figure-1)
+1. [Figure 1](#Figure_1.png)
 2. [Figure 2](#Figure-2)
 5. [Figure 3](#Figure-3)
 6. [Figure 4](#Figure-4)
