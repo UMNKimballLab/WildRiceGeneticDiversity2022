@@ -5,7 +5,7 @@ This repository contains all of the scripts that were developed for the Northern
 # Directory
 The purpose of this directory is to easily navigate to specific figures from the manuscript so that you can more easily find detailed information about the scripts that went into creating each figure.
 ## Figures
-1. [Figure 1](#Figure_1.png)
+1. [Figure 1](#Figure-1)
 2. [Figure 2](#Figure-2)
 5. [Figure 3](#Figure-3)
 6. [Figure 4](#Figure-4)
@@ -15,14 +15,13 @@ The purpose of this directory is to easily navigate to specific figures from the
 ## Tables
 1. [Table 1](#Table-1)
 2. [Table 2](#Table-2)
-3. [Table 3](#Table-3)
-4. [Table S1](#Table-S1)
-5. [Table S2](#Table-S2)
-6. [Table S3](#Table-S3)
-7. [Table S4](#Table-S4)
-8. [Table S5](#Table-S5)
-9. [Table S6](#Table-S6)
-10. [Table S7](#Table-S7)
+3. [Table S1](#Table-S1)
+4. [Table S2](#Table-S2)
+5. [Table S3](#Table-S3)
+6. [Table S4](#Table-S4)
+7. [Table S5](#Table-S5)
+8. [Table S6](#Table-S6)
+9. [Table S7](#Table-S7)
 
 ## Supplemental Figures
 1. [Figure S1](#Figure-S1)
@@ -32,6 +31,8 @@ The purpose of this directory is to easily navigate to specific figures from the
 5. [Figure S5](#Figure-S5)
 6. [Figure S6](#Figure-S6)
 7. [Figure S7](#Figure-S7)
+8. [Figure S8](#Figure-S8)
+9. [Figure S9](#Figure-S9)
 
 The goal of each of these pipelines was to generate a Variant Call Format (VCF) file containing SNP data for our population to be used in further analysis.
 
