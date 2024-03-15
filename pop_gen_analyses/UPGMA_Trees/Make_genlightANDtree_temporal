@@ -1,0 +1,38 @@
+#Make a text file of samples to include to use to edit the vcf file
+module load R/4.1.0
+R
+library(glue)
+#Temp tree 
+samp<-read.csv("/panfs/jay/groups/21/jkimball/garbe047/Genetic_Diversity/SampleKey_OnlyTemporal_240205.csv")
+names<-samp$Sample_number
+names2<-glue("{names}/{names}_sorted.bam")
+
+#make text file from data frame
+sampdat<-data.frame(names2)
+write.table(sampdat, file ="~/Genetic_Diversity/samp_temporaltree.txt", row.names=FALSE, quote=FALSE, col.names=FALSE)
+
+#Close out of R to main command line 
+##Exclude values from vcf that are not part of the final sample key (or 2010 temporal samples)
+module load bcftools
+bcftools view -S samp_temporaltree.txt biallelic_snps_only.recode.vcf --force-samples -o temporal.vcf  
+
+#temptree.sh
+
+#!/bin/bash -l
+#SBATCH --nodes=1
+#SBATCH --ntasks=5
+#SBATCH --time=40:00:00
+#SBATCH --mem-per-cpu=15gb
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=garbe047@umn.edu
+#SBATCH -p ag2tb
+#SBATCH --account=jkimball
+#SBATCH -o temptree.out
+#SBATCH -e temptree.err
+cd /panfs/jay/groups/21/jkimball/garbe047/Genetic_Diversity/
+
+module load R/4.1.0
+
+Rscript UPGMA_temptree.R
+
+#Saves to "~/Genetic_Diversity/genlight_temp.Rdata" but moved to computer drive to work in Rstudio
