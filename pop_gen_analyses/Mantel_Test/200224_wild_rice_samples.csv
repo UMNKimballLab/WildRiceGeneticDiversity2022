@@ -1,0 +1,16 @@
+Sample,Location,County,State,Lat,Long,col,UTM_easting,UTM_northing,UTM_zone
+1,Aquatica_species,Morrison,MN,45.94473,-94.24821,red3,403252.26,5088664.07,15T
+2,Bass Lake,Itasca,MN,47.28716,-93.63132,red,452261.37,5237269.21,15T
+3,Big Fork River,Koochiching,MN,47.733221,-93.960023,orange3,428018.49,5287095.83,15T
+4,Clearwater River,Clearwater,MN,47.51838,-95.46291,orange,314579.5,5265712.37,15T
+5,Dahler Lake,Crow Wing,MN,46.71888,-93.97281,yellow3,425654.75,5174384.53,15T
+6,Decker Lake,Itasca,MN,47.63515,-94.40492,yellow,394463.45,5276706.07,15T
+7,Garfield Lake,Hubbard,MN,47.21361,-94.7438,green3,367957.45,5230377.13,15T
+8,Mud Hen Lake,Burnett,WI,45.770047,-92.471731,green,541074.2,5068634.34,15T
+9,Necktie River,Hubbard,MN,47.29363,-94.74724,blue4,367896.18,5239275.37,15T
+10,Ottertail River,Ottertail,MN,46.38005,-95.8643,blue,279738.33,5140262.37,15T
+11,Phantom Lake,Burnett,WI,45.818299,-92.65074,violetred3,527132.39,5073918.89,15T
+12,Plantagenet,Hubbard,MN,47.36758,-94.91755,violet,355222.19,5247795.98,15T
+13,Shell Lake,Becker,MN,46.9451,-95.48486,purple4,310897.62,5202060.51,15T
+14,Upper Rice Lake,Clearwater,MN,47.4003,-95.28659,purple,327467.08,5252184.43,15T
+15,NCROC,Itasca,MN,47.2404,-93.5213,black,460549.44,5232012.32,15T
