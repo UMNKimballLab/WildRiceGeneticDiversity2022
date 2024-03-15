@@ -1,0 +1,16 @@
+#In order to align runs for each K from STRUCTURE we need to use CLUMPP, Pophelper has the function CLUMPPexport() that creates the input files needed to run CLUMPP
+#To download CLUMPP go to http://rosenberglab.bioinformatics.med.umich.edu/CLUMPP.html and download the tar.gz file, then move it to an appropriate folder in your UNIX file system
+#To unzip the tar file replace filename with the downloaded file name 
+gunzip filename.tar.gz; tar xvf filename.tar
+
+#Start by creating the input files needed for CLUMPP using pophelper in R/4.1.0, this will create folders for each K that have a paramfile and a combined run data file 
+
+library(pophelper)
+sfiles <- list.files(path= "G:/My Drive/Kimball lab/Projects/Genetic Diversity/STRUCTURE/By_PCOA/Matthew parameters/Results/Re-dos", full.names=T) #Replace with filepath to your STRUCTURE results
+slist<-readQ(files=sfiles)
+clumppExport(qlist=slist, exportpath=getwd())
+
+#If you did that in Rstudio you will need to move your files to your Unix file system to run CLUMPP so move the folders to an appropriate directory, then go into each folder and run
+file/path/to/CLUMPP (/panfs/jay/groups/21/jkimball/garbe047/Genetic_Diversity/CLUMPP_Linux64.1.1.2/CLUMPP)
+#Now in each folder you will have an aligned, merged, and misc file which you can use in pophelper to make figures
+
