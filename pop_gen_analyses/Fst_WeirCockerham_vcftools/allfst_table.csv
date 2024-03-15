@@ -1,0 +1,172 @@
+Pop1,Pop2,Fst
+Upper Rice Lake,PM3E,0.054191594
+Upper Rice Lake,K2,0.080340081
+Upper Rice Lake,Itasca-C20,0.068925537
+Upper Rice Lake,Itasca-C12,0.054792092
+Upper Rice Lake,FY-C20,0.05827011
+Upper Rice Lake,Barron,0.054393243
+Shell Lake,Upper Rice Lake,0.062944893
+Shell Lake,PM3E,0.121554859
+Shell Lake,K2,0.138371055
+Shell Lake,Itasca-C20,0.140259331
+Shell Lake,Itasca-C12,0.12272163
+Shell Lake,FY-C20,0.124997851
+Shell Lake,Barron,0.120866125
+Phantom Lake,Upper Rice Lake,0.041705402
+Phantom Lake,Shell Lake,0.107719476
+Phantom Lake,PM3E,0.052369276
+Phantom Lake,Lake Plantagenet,0.094337804
+Phantom Lake,K2,0.073386002
+Phantom Lake,Itasca-C20,0.063378432
+Phantom Lake,Itasca-C12,0.057794573
+Phantom Lake,FY-C20,0.054158448
+Phantom Lake,Barron,0.052673733
+Ottertail River,Upper Rice Lake,0.063850186
+Ottertail River,Shell Lake,0.04928897
+Ottertail River,PM3E,0.121094462
+Ottertail River,Phantom Lake,0.095503408
+Ottertail River,Lake Plantagenet,0.066892517
+Ottertail River,K2,0.132575326
+Ottertail River,Itasca-C20,0.134192374
+Ottertail River,Itasca-C12,0.11725097
+Ottertail River,FY-C20,0.122075011
+Ottertail River,Barron,0.119163053
+Necktie River,Upper Rice Lake,0.064856752
+Necktie River,Shell Lake,0.084227654
+Necktie River,PM3E,0.112415769
+Necktie River,Phantom Lake,0.099658126
+Necktie River,Ottertail River,0.092426831
+Necktie River,Lake Plantagenet,0.054658229
+Necktie River,K2,0.132015533
+Necktie River,Itasca-C20,0.123524361
+Necktie River,Itasca-C12,0.108637357
+Necktie River,FY-C20,0.109896475
+Necktie River,Barron,0.10791832
+Mud Hen Lake,Upper Rice Lake,0.110601629
+Mud Hen Lake,Shell Lake,0.157792858
+Mud Hen Lake,PM3E,0.143689206
+Mud Hen Lake,Phantom Lake,0.08649155
+Mud Hen Lake,Ottertail River,0.135859665
+Mud Hen Lake,Necktie River,0.157835042
+Mud Hen Lake,Lake Plantagenet,0.14679202
+Mud Hen Lake,K2,0.153469492
+Mud Hen Lake,Itasca-C20,0.157849444
+Mud Hen Lake,Itasca-C12,0.136150808
+Mud Hen Lake,FY-C20,0.138374632
+Mud Hen Lake,Barron,0.136696047
+Lake Plantagenet,Upper Rice Lake,0.056946683
+Lake Plantagenet,Shell Lake,0.054026455
+Lake Plantagenet,PM3E,0.104972621
+Lake Plantagenet,K2,0.121947023
+Lake Plantagenet,Itasca-C20,0.115371459
+Lake Plantagenet,Itasca-C12,0.100895353
+Lake Plantagenet,FY-C20,0.104914577
+Lake Plantagenet,Barron,0.102543374
+K2,PM3E,0.054785284
+K2,Itasca-C20,0.063204845
+K2,Itasca-C12,0.054681159
+K2,FY-C20,0.057617024
+K2,Barron,0.048148665
+Itasca-C20,PM3E,0.032510534
+Itasca-C20,FY-C20,0.009068915
+Itasca-C12,PM3E,0.025830812
+Itasca-C12,Itasca-C20,0.007551892
+Itasca-C12,FY-C20,0.008614247
+Garfield Lake,Upper Rice Lake,0.045966598
+Garfield Lake,Shell Lake,0.073445508
+Garfield Lake,PM3E,0.096855167
+Garfield Lake,Phantom Lake,0.088495765
+Garfield Lake,Ottertail River,0.079334937
+Garfield Lake,Necktie River,0.038859056
+Garfield Lake,Mud Hen Lake,0.151397454
+Garfield Lake,Lake Plantagenet,0.05909596
+Garfield Lake,K2,0.124342544
+Garfield Lake,Itasca-C20,0.113062574
+Garfield Lake,Itasca-C12,0.097853961
+Garfield Lake,FY-C20,0.10083407
+Garfield Lake,Barron,0.09750021
+FY-C20,PM3E,0.022167554
+Decker Lake,Upper Rice Lake,0.039042783
+Decker Lake,Shell Lake,0.103724739
+Decker Lake,PM3E,0.07687747
+Decker Lake,Phantom Lake,0.068079115
+Decker Lake,Ottertail River,0.107862998
+Decker Lake,Necktie River,0.08269782
+Decker Lake,Mud Hen Lake,0.148964186
+Decker Lake,Lake Plantagenet,0.093264799
+Decker Lake,K2,0.097692302
+Decker Lake,Itasca-C20,0.090302192
+Decker Lake,Itasca-C12,0.076994117
+Decker Lake,Garfield Lake,0.069932431
+Decker Lake,FY-C20,0.079018628
+Decker Lake,Barron,0.073418077
+Dahler Lake,Upper Rice Lake,0.048486211
+Dahler Lake,Shell Lake,0.125820851
+Dahler Lake,PM3E,0.078181156
+Dahler Lake,Phantom Lake,0.056383606
+Dahler Lake,Ottertail River,0.123620725
+Dahler Lake,Necktie River,0.115894795
+Dahler Lake,Mud Hen Lake,0.151878461
+Dahler Lake,Lake Plantagenet,0.113375921
+Dahler Lake,K2,0.11122306
+Dahler Lake,Itasca-C20,0.089097402
+Dahler Lake,Itasca-C12,0.07686363
+Dahler Lake,Garfield Lake,0.099971929
+Dahler Lake,FY-C20,0.077592112
+Dahler Lake,Decker Lake,0.078606707
+Dahler Lake,Barron,0.074046091
+Clearwater River,Upper Rice Lake,0.049363938
+Clearwater River,Shell Lake,0.055413339
+Clearwater River,PM3E,0.098752055
+Clearwater River,Phantom Lake,0.090262341
+Clearwater River,Ottertail River,0.066906368
+Clearwater River,Necktie River,0.073564581
+Clearwater River,Mud Hen Lake,0.140563108
+Clearwater River,Lake Plantagenet,0.041019795
+Clearwater River,K2,0.120249476
+Clearwater River,Itasca-C20,0.112543314
+Clearwater River,Itasca-C12,0.095335923
+Clearwater River,Garfield Lake,0.068092563
+Clearwater River,FY-C20,0.098217868
+Clearwater River,Decker Lake,0.09380737
+Clearwater River,Dahler Lake,0.106489969
+Clearwater River,Barron,0.098076653
+Bass Lake,Upper Rice Lake,0.043586194
+Bass Lake,Shell Lake,0.125760962
+Bass Lake,PM3E,0.072850978
+Bass Lake,Phantom Lake,0.067884986
+Bass Lake,Ottertail River,0.120492219
+Bass Lake,Necktie River,0.09805982
+Bass Lake,Mud Hen Lake,0.15285058
+Bass Lake,Lake Plantagenet,0.108250258
+Bass Lake,K2,0.107580268
+Bass Lake,Itasca-C20,0.083145696
+Bass Lake,Itasca-C12,0.068946071
+Bass Lake,Garfield Lake,0.080417692
+Bass Lake,FY-C20,0.073154567
+Bass Lake,Decker Lake,0.048871939
+Bass Lake,Dahler Lake,0.072574808
+Bass Lake,Clearwater River,0.104663362
+Bass Lake,Barron,0.068879002
+Barron,PM3E,0.022691091
+Barron,Itasca-C20,0.017987071
+Barron,Itasca-C12,0.012642
+Barron,FY-C20,0.015574468
+Z. aquatica,Phantom Lake,0.073557963
+Z. aquatica,Upper Rice Lake,0.079014034
+Z. aquatica,Clearwater River,0.100323608
+Z. aquatica,Lake Plantagenet,0.102350203
+Z. aquatica,Decker Lake,0.103738198
+Z. aquatica,Ottertail River,0.10747736
+Z. aquatica,Garfield Lake,0.109974643
+Z. aquatica,Dahler Lake,0.113640857
+Z. aquatica,Shell Lake,0.117549403
+Z. aquatica,Bass Lake,0.120278648
+Z. aquatica,Necktie River,0.122356329
+Z. aquatica,Mud Hen Lake,0.129311491
+Z. aquatica,PM3E,0.114697613
+Z. aquatica,K2,0.127506722
+Z. aquatica,Itasca-C20,0.131140015
+Z. aquatica,Itasca-C12,0.115579293
+Z. aquatica,FY-C20,0.118679911
+Z. aquatica,Barron,0.114095268

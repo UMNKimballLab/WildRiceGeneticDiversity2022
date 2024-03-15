@@ -1,0 +1,41 @@
+module load R/4.1.0
+R
+library(glue)
+#Adjust sample key to exclude cultivated genotypes we don't want
+samp<-read.csv("/panfs/jay/groups/21/jkimball/garbe047/Genetic_Diversity/SampleKey_Notemporal_240205.csv")
+exclude<-c("14PD-C10","14S*PM3/PBM-C3","14S*PS","GPB/K2B-C2","GPN-1.20","GPP-1.20","K2B-C16", "KPVN-C4", "KSVN-C4",  "PM3/3*PBM-C3",  "PM3/7*K2EF", "VE/2*14WS/*4K2EF", "VN/3*K2EF","PLaR-C20")
+samp2<-samp[!(samp$Sample_ID %in% exclude),]
+samp2$Sample_ID[samp2$Sample_ID == "K2EFBP-C1" | samp2$Sample_ID == "K2EF-C16"]<- "K2"
+names<-samp2$Sample_number
+names2<-glue("{names}/{names}_sorted.bam")
+
+#make text file from data frame
+sampdat<-data.frame(names2)
+write.table(sampdat, file ="~/Genetic_Diversity/samp_Fstall.txt", row.names=FALSE, quote=FALSE, col.names=FALSE)
+save(samp2, file="~/Genetic_Diversity/Fstsampkey.Rdata")
+
+#Close out of R to main command line 
+##Exclude values from vcf that are not part of the final sample key (or 2010 temporal samples)
+smodule load bcftools
+bcftools view -S samp_Fstall.txt biallelic_snps_only.recode.vcf --force-samples -o Fst.vcf
+
+#Back to R
+library(vcfR)
+library(poppr)
+library(ape)
+fstvcf<-read.vcfR("~/Genetic_Diversity/Fst.vcf")
+load("~/Genetic_Diversity/Fstsampkey.Rdata")
+
+#Make sure number of samples match up
+all(colnames(fstvcf@gt)[-1] == samp2$sample_ID)
+
+#Make genlight object
+gl.fstvcf <- vcfR2genlight(fstvcf)
+ploidy(gl.fstvcf) <- 2
+
+#Add population data from sample key
+pop(gl.fstvcf) <- samp2$Sample_ID
+
+save(samp2, gl.fstvcf, file="~/Genetic_Diversity/Fstgenlight.Rdata")
+
+#Move to R for Fst calculation and plotting R file Calculate_Fst_all.RMD
