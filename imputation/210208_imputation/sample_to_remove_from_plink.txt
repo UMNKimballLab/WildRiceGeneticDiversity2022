@@ -1,1 +1,0 @@
-Sample_0975/Sample_0975_sorted.bam Sample_0975/Sample_0975_sorted.bam
