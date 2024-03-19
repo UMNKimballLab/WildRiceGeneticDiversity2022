@@ -36,10 +36,6 @@ The purpose of this directory is to easily navigate to specific figures from the
 
 The goal of each of these pipelines was to generate a Variant Call Format (VCF) file containing SNP data for our population to be used in further analysis.
 
-Principal Component Analysis (PCA) plots were generated using [PLINK](http://zzz.bwh.harvard.edu/plink/) version 1.90b6.10. Those files can be found [here](plink_files).
-
-The directory [imputation](imputation) contains scripts to impute missing genotype calls, although these were not used in the final analysis.
-
 The directory [pop_gen_analyses](pop_gen_analyses) contains scripts used to conduct many of the population genetic analyses for this project.
 
 **Genome stats:**<br>
@@ -47,8 +43,8 @@ The script [merge_fastq_read_counts.py](merge_fastq_read_counts.py) was used to 
 
 # Figures
 ### Figure 1
-This figure shows the location of collection sites on public, non-tribal land in Minnesota and Wisconsin. The original map (featuring only the Minnesota watersheds) used watershed boundaries provided by the Minnesota Department of Natural Resources. The updated watershed map featuring watersheds of both Minnesota and Wisconsin was provided by the Wisconsin Department of Natural Resources. **Note:** The shape files for both versions are available in our Google Drive.<br> I wrote the [MN_watershed_map.py](collection_map/MN_watershed_map.py) script in order to create this figure. Note that there are two shape files required for the script to work (`MN_HUC4_WGS84_UTM15.shp` & `WI_HUC4_WGS84_UTM15.shp`). These are the shape files and are specifically coded into the script. However, there are an additional two files (the shape index files) that are required for the script to work, but are not coded into the script (`MN_HUC4_WGS84_UTM15.shx` & `WI_HUC4_WGS84_UTM15.shx`). The `.shx` files store the index of the feature geometry.
-<img src="images/nrw_collection_sites_watersheds.png" width="500">
+This figure shows the location of collection sites on public, non-tribal land in Minnesota and Wisconsin. The original map (featuring only the Minnesota watersheds) used watershed boundaries provided by the Minnesota Department of Natural Resources. The updated watershed map featuring watersheds of both Minnesota and Wisconsin was provided by the Wisconsin Department of Natural Resources. **Note:** Shape files can be downloaded from https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html. The code for producing this figure as well as figure S1 is found in [Figure1_and_S1_maps.Rmd](Map_figures/Figure1_and_S1_maps.RMD). In order for this code to work you must have both the shape files (.shp) and shape index files (.shx) in your directory. 
+<img src="images/Figure_1.png" width="500">
 
 ### Figure 2
 ## Figure 2 code explanation
