@@ -43,14 +43,14 @@ The script [merge_fastq_read_counts.py](merge_fastq_read_counts.py) was used to 
 
 # Figures
 ### Figure 1
-This figure shows the location of collection sites on public, non-tribal land in Minnesota and Wisconsin. The original map (featuring only the Minnesota watersheds) used watershed boundaries provided by the Minnesota Department of Natural Resources. The updated watershed map featuring watersheds of both Minnesota and Wisconsin was provided by the Wisconsin Department of Natural Resources. **Note:** Shape files can be downloaded from https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html. The code for producing this figure as well as figure S1 is found in [Figure1_and_S1_maps.Rmd](Map_Figures/Figure1_and_S1_maps.RMD). In order for this code to work you must have both the shape files (.shp) and shape index files (.shx) in your directory. 
+This figure shows the location of collection sites on public, non-tribal land in Minnesota and Wisconsin. The original map (featuring only the Minnesota watersheds) used watershed boundaries provided by the Minnesota Department of Natural Resources. The updated watershed map featuring watersheds of both Minnesota and Wisconsin was provided by the Wisconsin Department of Natural Resources. **Note:** Shape files can be downloaded from https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html. The code for producing this figure as well as figure S1 is found in [Figure1_and_S1_maps.Rmd](Map_Figures/Figure1_and_S1_maps.Rmd). In order for this code to work you must have both the shape files (.shp) and shape index files (.shx) in your directory. 
 
 <img src="images/Figure_1.png" width="500">
 
 ### Figure 2
 ## Figure 2 code explanation
 The PCoAs were calculated separately for all data, just cultivated, just natural stand, and just temporal data as described in the text files [All_data_PCoA.txt]
-(/pop_gen_analyses/PCoA/All_data_PCoA.txt), [PCOA cultivated and natural stand separate.txt](/pop_gen_analyses/PCoA/PCOA cultivated and natural stand separate.txt), and [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_Temporal.txt), respectively. They were then each plotted using the script [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_plotting.R). Sample Keys use in these analyses can be found in the [Sample_Keys](Sample_Keys) directory. 
+(/pop_gen_analyses/PCoA/All_data_PCoA.txt), [PCOA cultivated and natural stand separate.txt](/pop_gen_analyses/PCoA/PCOA-cultivated-and-natural-stand-separate.txt), and [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_Temporal.txt), respectively. They were then each plotted using the script [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_plotting.R). Sample Keys use in these analyses can be found in the [Sample_Keys](Sample_Keys) directory. 
 
 Principal component analysis plot (PC1 vs PC2) for the complete set<br>
 <img src="images/Figure_2.png" width="500">
@@ -58,46 +58,17 @@ Principal component analysis plot (PC1 vs PC2) for the complete set<br>
 
 ### Figure 3
 ## Figure 3 code explanation
-I wrote the script [empulateStructurePlots.py](pop_gen_analyses/emulateStructurePlots.py) to make these figures which emulate the ones automatically produced by STRUCTURE. My primary motivation was so that I could add labels to the bottom of each cluster in a reproducible way and not resort to using PowerPoint.
-A majority of the script consists of functions that I wrote to do the work. A brief overview is provided here.<br>
-**Note:** ```sys.argv[1]``` serves the same function in python as ```args[1]``` does in R. To use it, you should have two lines at the beginning of your script in addition to any other modules you want to use:
-```python
-import os
-import sys
-```
-The main function is called ```emulateStructure()``` which uses the number of columns in the ```CSV``` input file to tell the script how many _K_ populations there are in the file. That information is used to give a _K_ value to the ```makePlot()``` function. This is the function that actually makes the plots. It uses the function ```assignClusterMembership()``` to assign each cluster to the correct population (Natural Stand I, II, or III; Cultivated Material; or _Zizania aquatica_). The last few lines of the script are where this all comes together. The ```CSV``` file is 1) loaded into python; 2) sorted first by the most probable cluster and then by likelihood; and 3) the functions described above are executed.
-```python
-df = pd.read_csv(sys.argv[1])
-dfSorted = df.sort_values(by = ['Most_likely', 'Likelihood'], ascending = (True, False))
-emulateStructure(df)
-```
+Data for this figure as well as figure S4 were organized for input into structure in the script [Organize_data_forStructure.R](pop_gen_analyses/STRUCTURE/Organize_data_forStructure.R). Data was then run through STRUCTURE using the parameters described in that script. As multiple runs of each K value were conducted, runs for each K value were aligned as described in the script [Aligning STRUCTURE runs within K values](pop_gen_analyses/STRUCTURE/Aligning-STRUCTURE-runs-within-K-values). Merged runs were then plotted with pophelper as described in the script [pophelper_plotting.R](pop_gen_analyses/STRUCTURE/pophelper_plotting.R)
 
-### Figure 3a
-STRUCTURE results for _K_ = 2<br>
-<img src="images/structure_plot_k2.png" width="500">
-
-### Figure 3b
-STRUCTURE results for _K_ = 3<br>
-<img src="images/structure_plot_k3.png" width="500">
-
-### Figure 3c
-STRUCTURE results for _K_ = 4<br>
-<img src="images/structure_plot_k4.png" width="500">
-
-### Figure 3d
-STRUCTURE results for _K_ = 5<br>
-<img src="images/structure_plot_k5.png" width="500">
-
-Finally, we also wanted to show how the plot looks when _K_=14. We selected 14 as the expected number of populations because we have 12 Natural Stand populations, 1 _Zizania aquatica_ population, and 1 Cultivated Material population.  Interestingly, we did not see each population get its own sub-population. Instead, there are ~6 major sub-populations. Some have higher degrees of admixture than others, especially Mud Hen Lake and Phantom Lake.
-
-STRUCTURE results for _K_ = 14<br>
-<img src="images/structure_plot_k14.png" width="500">
+<img src="Figure_3.png" width="500">
 
 ### Figure 4
+Genlight objects were generated for [all sample data](pop_gen_analyses/Fst_WeirCockerham_vcftools/Make_filteredVCF_andgenlight_forFST) as well as [just temporal samples](pop_gen_analyses/UPGMA_Trees/UPGMA_temptree.R). Fst values between each population for all samples as well as just temporal samples were calculated with StAMPP and plotted with ggplot2 as described in [Calculate_Fst_fullandtemp.Rmd](pop_gen_analyses/Fst_WeirCockerham_vcftools/Calculate_Fst_fullandtemp.Rmd).
+
+<img src="Figure_4.png" width="500">
 
 ### Figure 5
 The combined sweep plot was generated using [plot_combined_sweep_figure.R](pop_gen_analyses/plot_combined_sweep_figure.R) which imports data from each individual component's analysis so that they can be plotted in the same figure.
-
 
 
 # Tables
