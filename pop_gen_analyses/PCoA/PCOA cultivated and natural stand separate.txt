@@ -91,6 +91,4 @@ pcoac<-cmdscale(distc, eig=TRUE, add=TRUE, k=4)
 
 save(vcf_num_df3, vcfn_num_df3,vcfc_num_df3, vcfmat, vcfnmat, vcfcmat, distn, distc, pcoan, pcoac,file="~/Genetic_Diversity/230929_PCOAdat.Rdata")
 
-#Moving to R desktop instead of R in command line for plotting
-#R markdown file is called 
 
