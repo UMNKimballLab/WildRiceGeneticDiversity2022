@@ -43,53 +43,18 @@ The script [merge_fastq_read_counts.py](merge_fastq_read_counts.py) was used to 
 
 # Figures
 ### Figure 1
-This figure shows the location of collection sites on public, non-tribal land in Minnesota and Wisconsin. The original map (featuring only the Minnesota watersheds) used watershed boundaries provided by the Minnesota Department of Natural Resources. The updated watershed map featuring watersheds of both Minnesota and Wisconsin was provided by the Wisconsin Department of Natural Resources. **Note:** Shape files can be downloaded from https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html. The code for producing this figure as well as figure S1 is found in [Figure1_and_S1_maps.Rmd](Map_figures/Figure1_and_S1_maps.RMD). In order for this code to work you must have both the shape files (.shp) and shape index files (.shx) in your directory. 
+This figure shows the location of collection sites on public, non-tribal land in Minnesota and Wisconsin. The original map (featuring only the Minnesota watersheds) used watershed boundaries provided by the Minnesota Department of Natural Resources. The updated watershed map featuring watersheds of both Minnesota and Wisconsin was provided by the Wisconsin Department of Natural Resources. **Note:** Shape files can be downloaded from https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html. The code for producing this figure as well as figure S1 is found in [Figure1_and_S1_maps.Rmd](Map_Figures/Figure1_and_S1_maps.RMD). In order for this code to work you must have both the shape files (.shp) and shape index files (.shx) in your directory. 
+
 <img src="images/Figure_1.png" width="500">
 
 ### Figure 2
 ## Figure 2 code explanation
-The PCA plots were made with R using input from plink. The ```R``` script itself is called from the ```bash``` script that I submitted to the SLURM scheduler. This allows me to recycle the same R script using different input files without needing to constantly edit & re-edit input our output file names. The bash script to make the PCA plot looks like:
-```bash
-#!/bin/bash -l
-#SBATCH --nodes=1
-#SBATCH --ntasks=32
-#SBATCH --time=24:00:00
-#SBATCH --mem=30g
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=haasx092@umn.edu
-#SBATCH -p amdsmall
-#SBATCH --account=jkimball
-#SBATCH -o plot_plink_pca_20NA_dp4.out
-#SBATCH -e plot_plink_pca_20NA_dp4.err
+The PCoAs were calculated separately for all data, just cultivated, just natural stand, and just temporal data as described in the text files [All_data_PCoA.txt]
+(/pop_gen_analyses/PCoA/All_data_PCoA.txt), [PCOA cultivated and natural stand separate.txt](/pop_gen_analyses/PCoA/PCOA cultivated and natural stand separate.txt), and [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_Temporal.txt), respectively. They were then each plotted using the script [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_plotting.R). Sample Keys use in these analyses can be found in the [Sample_Keys](Sample_Keys) directory. 
 
-cd /home/jkimball/haasx092/main_GBS/210306_samtools
-
-module load R/3.6.0
-Rscript plot_plink_pca.R  plink_20percent_NA_pca_dp4.eigenvec plink_20percent_NA_pca_dp4.eigenval 210306_main_gbs_20percent_NA_dp4.pdf 210306_main_gbs_20percent_NA_dp4.Rdata
-```
-In this case, the first argument (```args[1]``` in R) is the _eigenvector_ file, the second argument (```args[2]```) is the _eigenvalue_ file, and the third argument (```args[3]``` is the ouput PDF file which contains the plots themselves. In the R script (```plot_plink_pca.R```), the code looks like this (only the first instance is shown here. Look at the script itself if you want to see the other two instances):
-```r 
-fread(args[1]) -> x
-```
-**Note:** this line is required near the top of the R script for ```args[1]```, ```args[2]```, etc to work properly.
-```r 
-args <- commandArgs(trailingOnly = TRUE)
-```
-### Figure 2a
 Principal component analysis plot (PC1 vs PC2) for the complete set<br>
-<img src="images/220413_pca_all_PC1_vs_PC2_shapes_by_watershed.png" width="500">
+<img src="images/Figure_2.png" width="500">
 
-### Figure 2b
-Principal component analysis plot (PC1 vs PC2) for the natural stands only<br>
-<img src="images/220414_natural_stands_pca_PC1_vs_PC2.png" width="500">
-
-### Figure 2c
-Principal component analysis plot (PC1 vs PC2) for the cultivated material only<br>
-<img src="images/210818_breeding_lines_pca_incl_nonbiallelic.png" width="500">
-
-### Figure 2d
-Principal component analysis plot (PC1 vs PC2) for the temporal samples<br>
-<img src="images/Figure_4_210820_temporal_pca_incl_nonbiallelic.png" width="500">
 
 ### Figure 3
 ## Figure 3 code explanation
