@@ -60,16 +60,17 @@ Principal component analysis plot (PC1 vs PC2) for the complete set<br>
 ## Figure 3 code explanation
 Data for this figure as well as figure S4 were organized for input into structure in the script [Organize_data_forStructure.R](pop_gen_analyses/STRUCTURE/Organize_data_forStructure.R). Data was then run through STRUCTURE using the parameters described in that script. As multiple runs of each K value were conducted, runs for each K value were aligned as described in the script [Aligning STRUCTURE runs within K values](pop_gen_analyses/STRUCTURE/Aligning-STRUCTURE-runs-within-K-values). Merged runs were then plotted with pophelper as described in the script [pophelper_plotting.R](pop_gen_analyses/STRUCTURE/pophelper_plotting.R)
 
-<img src="Figure_3.png" width="500">
+<img src="images/Figure_3.png" width="500">
 
 ### Figure 4
 Genlight objects were generated for [all sample data](pop_gen_analyses/Fst_WeirCockerham_vcftools/Make_filteredVCF_andgenlight_forFST) as well as [just temporal samples](pop_gen_analyses/UPGMA_Trees/UPGMA_temptree.R). Fst values between each population for all samples as well as just temporal samples were calculated with StAMPP and plotted with ggplot2 as described in [Calculate_Fst_fullandtemp.Rmd](pop_gen_analyses/Fst_WeirCockerham_vcftools/Calculate_Fst_fullandtemp.Rmd).
 
-<img src="Figure_4.png" width="500">
+<img src="images/Figure_4.png" width="500">
 
 ### Figure 5
-The combined sweep plot was generated using [plot_combined_sweep_figure.R](pop_gen_analyses/plot_combined_sweep_figure.R) which imports data from each individual component's analysis so that they can be plotted in the same figure.
+The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/Figure-5.Rmd) which imports data from each individual component's analysis so that they can be plotted in the same figure. Individual components were calculated in the following scripts:[Nucleotide diversity]() ,[Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham_vcftools/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/plot_XP-CLR_results.R)
 
+<img src="images/Figure_5.png" width="500">
 
 # Tables
 
