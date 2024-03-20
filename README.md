@@ -68,7 +68,7 @@ Genlight objects were generated for [all sample data](pop_gen_analyses/Fst_WeirC
 <img src="images/Figure_4.png" width="500">
 
 ### Figure 5
-The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/Figure-5.Rmd) which imports data from each individual component's analysis so that they can be plotted in the same figure. Individual components were calculated in the following scripts:[Nucleotide diversity]() ,[Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham_vcftools/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/plot_XP-CLR_results.R)
+The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/Figure-5.Rmd) which imports data from each individual component's analysis so that they can be plotted in the same figure. Individual components were calculated in the following scripts: [Nucleotide diversity](pop_gen_analyses/nucleotide_diversity/calculate_genome-wide_nucleotide_diversity.R) ,[Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham_vcftools/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/plot_XP-CLR_results.R)
 
 <img src="images/Figure_5.png" width="500">
 
