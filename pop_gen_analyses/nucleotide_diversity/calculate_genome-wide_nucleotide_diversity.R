@@ -56,29 +56,5 @@ combined[CLASS == "cultivated" & POS == i, MEAN_PI := mean(PI)]
 combined[CLASS == "natural stands" & POS == i, MEAN_PI := mean(PI)]
 }
 
-# Make the genome-wide plot
-pdf("out.pdf", height = 10, width = 40)
-combined[CLASS == "cultivated", plot(x = POS, y = MEAN_PI,
-			xlab = "Chromosomes",
-			ylab = "average nucleotide diversity (pi)",
-			ylim = c(0,0.7),
-			xaxt = 'n',
-			col = "black",
-			pch = PCH,
-			type = "o",
-			las = 1)]
-combined[CLASS == "natural stands", lines(x = POS, y = MEAN_PI,
-			xlab = "Chromosomes",
-			ylab = "average nucleotide diversity (pi)",
-			ylim = c(0,0.7),
-			xaxt = 'n',
-			col = "#00a54c",
-			pch = PCH,
-			type = "o",
-			las = 1)]
-axis(side = 1, at = midpoints, labels = c("ZPchr0001", "ZPchr0002", "ZPchr0003", "ZPchr0004", "ZPchr0005", "ZPchr0006", "ZPchr0007", "ZPchr0008", "ZPchr0009", "ZPchr0010", 
-					 "ZPchr0011", "ZPchr0012", "ZPchr0013", "ZPchr0014", "ZPchr0015", "ZPchr0016", "ZPchr0458"))
-dev.off()
-
 # Save data
 save(combined, file = "220420_nucleotide_diversity_data.Rdata")
