@@ -63,12 +63,12 @@ Data for this figure as well as figure S4 were organized for input into structur
 <img src="images/Figure_3.png" width="500">
 
 ### Figure 4
-Genlight objects were generated for [all sample data](pop_gen_analyses/Fst_WeirCockerham_vcftools/Make_filteredVCF_andgenlight_forFST) as well as [just temporal samples](pop_gen_analyses/UPGMA_Trees/UPGMA_temptree.R). Fst values between each population for all samples as well as just temporal samples were calculated with StAMPP and plotted with ggplot2 as described in [Calculate_Fst_fullandtemp.Rmd](pop_gen_analyses/Fst_WeirCockerham_vcftools/Calculate_Fst_fullandtemp.Rmd).
+Genlight objects were generated for [all sample data](pop_gen_analyses/Fst_WeirCockerham/Make_filteredVCF_andgenlight_forFST) as well as [just temporal samples](pop_gen_analyses/UPGMA_Trees/UPGMA_temptree.R). Fst values between each population for all samples as well as just temporal samples were calculated with StAMPP and plotted with ggplot2 as described in [Calculate_Fst_fullandtemp.Rmd](pop_gen_analyses/Fst_WeirCockerham/Calculate_Fst_fullandtemp.Rmd).
 
 <img src="images/Figure_4.png" width="500">
 
 ### Figure 5
-The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/Figure-5.Rmd) which imports data from each individual component's analysis so that they can be plotted in the same figure. Individual components were calculated in the following scripts: [Nucleotide diversity](pop_gen_analyses/nucleotide_diversity/calculate_genome-wide_nucleotide_diversity.R) ,[Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham_vcftools/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/plot_XP-CLR_results.R)
+The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/Figure-5.Rmd) which imports data from each individual component's analysis so that they can be plotted in the same figure. Individual components were calculated in the following scripts: [Nucleotide diversity](pop_gen_analyses/nucleotide_diversity/calculate_genome-wide_nucleotide_diversity.R) ,[Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham_vcftools/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/Genome-wide-selection/plot_XP-CLR_results.R)
 
 <img src="images/Figure_5.png" width="500">
 
@@ -102,16 +102,16 @@ grep -v "^#" snps_in_genes.vcf | cut -f 1 | sort | uniq -c
 ```
 
 ### Table 2
-Analysis of Molecular Variance (AMOVA). The AMOVA was performed using the [AMOVA.R](pop_gen_analyses/AMOVA/AMOVA.R) R script launched by [run_AMOVA.sh](pop_gen_analyses/AMOVA/run_AMOVA.sh).
+Analysis of Molecular Variance (AMOVA). The AMOVA was performed using the [AMOVA.R](pop_gen_analyses/AMOVA/AMOVA.R) R script launched by [run_AMOVA.sh](pop_gen_analyses/AMOVA/run_AMOVA.sh). The Cultivated vs. Cultivated was re-run in the script [AMOVA_cultvcult.Rmd](pop_gen_analyses/AMOVA/AMOVA_cultvcult.Rmd) as the number of samples had to be adjusted after the initial calculation. 
 
 | Grouping | Source of variation | df | MS | Sigma | % | Probability |
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: |
 | Natural stands vs. Natural stands | Variations between individuals | 12 | 7440.64 | 133.71 | 8.10 | 0.001 |
 |                                   | Variations within individuals  | 567 | 1516.08 | 1516.08 | 91.90 | 0.001 |
 |                                   | Total variation                | 579 | 1638.87 | 1649.78 | 100.00 | 0.001 |
-| Cultivated vs. Cultivated         | Variations between individuals | 20  | 1841.49  | 49.61   | 3.37 | 0.001 |
-|                                   | Variations within individuals  | 166 | 1421.51 | 1421.51 | 96.63 | 0.001 |
-|                                   | Total variation                | 186 | 1466.67 | 1471.11 | 100.00 | 0.001 |
+| Cultivated vs. Cultivated         | Variations between individuals | 13  | 1592.63  | 18.31   | 1.33 | 0.001 |
+|                                   | Variations within individuals  | 172 | 1360.34 | 1360.34 | 98.67 | 0.001 |
+|                                   | Total variation                | 185 | 1376.66 | 1378.65 | 100.00 | 0.001 |
 | Natural stands vs. Cultivated     | Variations between individuals | 1 | 20,955.05 | 68.42 | 4.09 | 0.001 |
 |                                   | Variations within indiviuduals | 765 | 1604.18 | 1604.17 | 95.91 | 0.001 |
 |                                   | Total variation                | 766 | 1629.44 | 1672.60 | 100.00 | 0.001 |
@@ -119,50 +119,6 @@ Analysis of Molecular Variance (AMOVA). The AMOVA was performed using the [AMOVA
 |                                   | Variations within individuals  | 761 | 1584.24 | 1584.24 | 96.47 | 0.001 |
 |                                   | Total variation                | 766 | 1629.44 | 1642.20 | 100.00 | 0.001 |
 
-### Table 3
-Fixation index (_F<sub>ST</sub>_) values derived using the weighted Weir and Cockerham method (Weir and Cockerham, 1984) based on 5,955 single nucleotide polymorphism (SNP) markers generated via genotyping-by-sequencing (GBS) for a diversity collection of Northern Wild Rice (NWR; _Zizania palustris_ L.) consisting of a.) A Natural Stand collection; b.) A Cultivated collection; and c.) A comparison of Natural Stand and Cultivated collections. Sample sizes can be found in Table S1.   
-
-**Natural Stands vs. Natural Stands**
-|     | Clearwater River | Dahler Lake | Decker Lake | Garfield Lake | Mud Hen Lake | Necktie River | Ottertail River | Phantom Lake | (Lake) Plantagenet | Shell Lake | Upper Rice Lake | _Z. aquatica_ |
-| :------ | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Bass Lake | 0.1040 | 0.0722 | 0.0487 | 0.0802 | 0.1529 | 0.0979 | 0.1201 | 0.0678 | 0.1080 | 0.1254 | 0.0434 | 0.1201 |
-| Clearwater River | | 0.1060 | 0.0934 | 0.0679 | 0.1406 | 0.0734 | 0.0670 | 0.0902 | 0.0410 | 0.0553 | 0.0493 | 0.1004 |
-| Dahler Lake | | | 0.0782 | 0.0096 | 0.1519 | 0.1156 | 0.1233 | 0.0563 | 0.1132 | 0.1255 | 0.0483 | 0.1135 |
-| Decker Lake | | | | 0.0696 | 0.1490 | 0.0824 | 0.1076 | 0.0680 | 0.0931 | 0.1034 | 0.0388 | 0.1037 |
-| Garfield Lake | | | | | 0.1515 | 0.0387 | 0.0791 | 0.0885 | 0.0589 | 0.0731 | 0.0459 | 0.1100 |
-| Mud Hen Lake | | | | | | 0.1580 | 0.1353 | 0.0861 | 0.1468 | 0.1578 | 0.1107 | 0.1291 |
-| Necktie River | | | | | | | 0.0923 | 0.0996 | 0.0545 | 0.0838 | 0.0646 | 0.1221 |
-| Ottertail River | | | | | | | | 0.0952 | 0.0668 | 0.0494 | 0.0638 | 0.1072 |
-| Phantom Lake | | | | | | | | | 0.0944 | 0.1077 | 0.0417 | 0.0734 |
-| (Lake) Plantagenet | | | | | | | | | | 0.0538 | 0.0570 | 0.1024 |
-| Shell Lake | | | | | | | | | | | 0.0628 | 0.1175 |
-| Upper Rice Lake | | | | | | | | | | | | 0.0790 |
-
-**Cultived vs. Cultivated**
-| | FY-C20 | Itasca-C12 | Itasca-C20 | K2EF-C16 | PM3E |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Barron | 0.0099 | 0.0058 | 0.0155 | 0.0273 | 0.0111 |
-| FY-C20 | | 0.0063 | 0.0065 | 0.0233 | 0.0086 |
-| Itasca-C12 | | | 0.0078 | 0.0279 | 0.0121 |
-| Itasca-C20 | | | | 0.0337 | 0.0190 |
-| K2EF-C16 | | | | | 0.0276 |
-
-**Cultivated vs. Natural Stands**
-| | Barron | FY-C20 | Itasca-C12 | Itasca-C20 | K2EF-C16 | PM3E |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| Bass Lake | 0.0362 | 0.0342 | 0.0342 | 0.0436 | 0.0440 | 0.0276 |
-| Clearwater River | 0.0456 | 0.0464 | 0.0472 | 0.0595 | 0.0584 | 0.0431 |
-| Dahler Lake | 0.0412 | 0.0418 | 0.0398 | 0.0504 | 0.0515 | 0.0369 |
-| Decker Lake | 0.0412 | 0.0424 | 0.0422 | 0.0559 | 0.0466 | 0.0338 |
-| Garfield Lake | 0.0542 | 0.0500 | 0.0540 | 0.0663 | 0.0571 | 0.0435 |
-| Mud Hen Lake | 0.0709 | 0.0648 | 0.0694 | 0.0804 | 0.0684 | 0.0693 |
-| Necktie River | 0.0600 | 0.0574 | 0.0589 | 0.0734 | 0.0667 | 0.0510 |
-| Ottertail River | 0.0530 | 0.0505 | 0.0517 | 0.0586 | 0.0562 | 0.0485 |
-| Phantom Lake | 0.0313 | 0.0267 | 0.0316 | 0.0360 | 0.0342 | 0.0262 |
-| (Lake) Plantagent | 0.0495 | 0.0469 | 0.0492 | 0.0587 | 0.0532 | 0.0441 |
-| Shell Lake | 0.0566 | 0.0561 | 0.0574 | 0.0719 | 0.0621 | 0.0504 |
-| Upper Rice Lake | 0.0298 | 0.0305 | 0.0296 | 0.0423 | 0.0352 | 0.0240 |
-| _Z. aquatica_ | 0.0487 | 0.0479 | 0.0479 | 0.0572 | 0.0518 | 0.0445 |
 
 ### Table S1
 List of samples in our diversity collection of Northern Wild Rice (NWR; _Zizania palustris_ L.) genotyped with 5,955 single nucleotide polymorphism (SNP) markers generated via genotyping-by-sequencing (GBS). HUC 8 watershed designations include Upper Mississippi River (UMR), Red River of the North (RRN), and St. Croix River (SCR) basins.
@@ -206,7 +162,7 @@ List of samples in our diversity collection of Northern Wild Rice (NWR; _Zizania
 | VN/3\*K2EF | 4 | Cultivated | n/a | n/a |
 
 ### Table S2
-Geographic distance (km) matrix of US states of Minnesota and Wisconsin lakes and rivers where Northern Wild Rice (NWR; _Z. palustris_ L.) leaf tissue samples were collected along with watershed designations for the Upper Mississippi River (UMR), Red River of the North (RRN), and St. Croix River (SCR).
+Geographic distance (km) matrix of US states of Minnesota and Wisconsin lakes and rivers where Northern Wild Rice (NWR; _Z. palustris_ L.) leaf tissue samples were collected along with watershed designations for the Upper Mississippi River (UMR), Red River of the North (RRN), and St. Croix River (SCR). Geographic distance was calculated in the [Mantel test script](pop_gen_analyses/Mantel_Test/Mantel_test_240216.Rmd) 
 |Natural Population (Watershed) | _Z. aquatica_ | Bass Lake | Clearwater River | Dahler Lake | Decker Lake | Garfield Lake | Mud Hen Lake | Necktie River | Ottertail Lake | Phantom Lake | (Lake) Plantagenet | Shell Lake | Upper Rice Lake |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | _Z. aquatica_ (UMR) | | 156.7 | 198.2 | 88.7 | 188.6 | 146.3 | 139.1 | 154.9 | 133.7 | 124.6 | 166.4 | 146.3 | 180.4 |
@@ -224,7 +180,7 @@ Geographic distance (km) matrix of US states of Minnesota and Wisconsin lakes an
 | Upper Rice Lake (RRN) | 180.4 | 125.5 | 18.7 | 125.2 | 71.3 | 45.9 | 281.6 | 42.4 | 121.8 | 267.6 | 28.1 | 52.8 | |
 
 ### Table S3
-Table S3 is too large to generate here using Markdown, so you can find it as an Excel file [here](supplemental_data/Table_S3_sample_key_with_SRA_accessions.xlsx).
+Table S3 is too large to generate here using Markdown, so you can find it as an Excel file [here](Sample_Keys/Full_Sample_Key_240122.xlsx).
 
 ### Table S4
 The Transition/Transversion ratios were generated using the script [calculate_TsTv_vcftools.sh](vcftools_scripts_incl_nonbiallelic/calculate_TsTv_vcftools.sh). Additional details can be found within the directory containing the script.
@@ -272,7 +228,7 @@ Polymorphic Information Content (PIC) values for 5,955 single nucleotide polymor
 | Upper Rice Lake | 0.1420 | 0.1141 | 0.0010 | 0.3125 | 0.1088 |
 | _Zizania aquatica_ | 0.1496 | 0.1313 | 0.0010 | 0.3125 | 0.1107 |
 
-We initially calculated Polymorphism Information Content (PIC) values in Excel; however, I don't particularly like using Excel for computational work. I made that exception (initially) because I was having a hard time finding appropriate tools to do the analysis. So, I chose to use Excel for expediency. After some time, I discovered the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package which will actually do the PIC calculations! So, I switched to that method using the [NeiD_and_PIC_with_snpReady.R](pop_gen_analyses/NeiD_and_PIC_with_snpReady.R) script!
+To calculate the Polymorphism Information Content (PIC) we used the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package. [The Natural Stand calculation script](pop_gen_analyses/Diversity_Statistics/NeiD_and_PIC_with_snpReady.R) [Cultivated Calculation script](pop_gen_analyses/Diversity_Statistics/Neis_D_cultivated_with_snpReady.R).
 
 ### Table S6
 _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild Rice (NWR; _Zizania palustris_ L.).
@@ -286,7 +242,7 @@ _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild R
 _D_-statistics (ABBA-BABA) was performed using the the R package [admixTools](https://github.com/DReichLab/AdmixTools). The [admixtools_ABBA-BABA.R](pop_gen_analyses/ABBA-BABA/admixtools_ABBA-BABA.R) script used to launch the analysis is launched by the [run_admixtools.sh](pop_gen_analyses/ABBA-BABA/run_admixtools.sh) script.
 
 ### Table S7
-Table S7 is too large to generate here using Markdown, so you can find it as an Excel file [here](supplemental_data/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx).
+Table S7 is too large to generate here using Markdown, so you can find it as an Excel file [here]([supplemental_data/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx](pop_gen_analyses/Genome-wide-selection/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx). Values were calculated in the following scripts: [TajimaD](pop_gen_analyses/Genome-wide-selection/transition_transversion_script.txt), [Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham_vcftools/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/Genome-wide-selection/plot_XP-CLR_results.R)
 
 # Supplementary Figures
 
