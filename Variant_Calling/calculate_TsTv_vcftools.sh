@@ -1,16 +1,4 @@
 #!/bin/bash -l
-#SBATCH --nodes=1
-#SBATCH --ntasks=32
-#SBATCH --time=24:00:00
-#SBATCH --mem-per-cpu=15gb
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=garbe047@umn.edu
-#SBATCH -p ag2tb
-#SBATCH --account=jkimball
-#SBATCH -o calculate_TsTv_vcftools.out
-#SBATCH -e calculate_TsTv_vcftools.err
-
-cd /scratch.global/garbe047
 
 # This is the code that was run to get the genome-wide TsTv numbers
 vcftools --gzvcf biallelic_snps_only.recode.vcf --TsTv 1000000 --out genome-wide
