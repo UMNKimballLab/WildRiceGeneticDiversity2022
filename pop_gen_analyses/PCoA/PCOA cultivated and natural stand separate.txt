@@ -1,10 +1,8 @@
 #Using cultivated_only.vcf and naturalstand_only.vcf
-#Running code in R/4.1.0
 library(vcfR)    
 library(vegan)
 library(tidyverse)
 library(stats)
-
 
 #Read in vcf
 vcf<-read.vcfR("~/Genetic_Diversity/biallelic_snps_only.recode.vcf", convertNA =TRUE)
@@ -69,15 +67,6 @@ row.names(vcfnmat)<-samplesn
 vcfc_num_df3<-vcfc_num_df2[,!(names(vcfc_num_df2) %in% drop)]
 vcfcmat<-as.matrix(sapply(vcfc_num_df3, as.numeric))
 row.names(vcfcmat)<-samplesc
-
-# Find empty rows (rows with all NA values)
-empty_rows <- apply(vcfmat, 1, function(row) all(is.na(row)))
-
-# Identify row indices of empty rows
-empty_row_indices <- which(empty_rows)
-
-# Display the empty row indices
-print(empty_row_indices)
 
 #making dissimilarity matrix, using pairwise deletion of missing values (na.rm=T)
 dist<-vegdist(vcfmat, method="jaccard",na.rm=TRUE)
