@@ -14,7 +14,6 @@ args = commandArgs(trailingOnly = TRUE)
 x <- read.vcfR(args[1])
 
 # Load sample key--updated key has STRUCTURE populations defined
-#y <- fread("~/main_GBS/191021_main_GBS_sample_key.csv")
 y <- fread("210920_sample_key_with_population_structure.csv")
 
 # Convert to a genlight object (for poppr and adegenet)
@@ -62,12 +61,6 @@ strata(gen_light_x, formula = ~population, value = y)
 
 # Add strata to the GENLIGHT object gen_light_x
 strata(gen_light_x) <- y
-
-# Get the names to agree with one another
-# Turns out, this didn't do anything...but I think the issue might be that I need to ID the samples in a different manner
-for (i in y$sample){
-y[sample == i, sample := paste0(i, "/", i, "_sorted.bam")]
-}
 
 # Make a genlight object for natural stands only
 natural_stand_gl <-  gen_light_x[gen_light_x@strata$class != "Breeding line"]
