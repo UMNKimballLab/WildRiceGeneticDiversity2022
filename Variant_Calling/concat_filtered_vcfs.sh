@@ -1,9 +1,7 @@
-#SBATCH --account=jkimball
-#SBATCH -o concat_filtered_vcfs_20NA.out
-#SBATCH -e concat_filtered_vcfs_20NA.err
+#!/bin/bash
 
 # Include path to the working directory
-cd /home/jkimball/haasx092/main_GBS/210624_samtools
+cd ~/main_GBS/210624_samtools
 
 module load bcftools
 
