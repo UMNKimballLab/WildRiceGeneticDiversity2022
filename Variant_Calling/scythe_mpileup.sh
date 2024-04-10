@@ -1,9 +1,9 @@
 module load htslib
 module load parallel
 
-export bams="190910_sorted_bam_files_no_JohnsonDora.txt"
+export bams="190910_sorted_bam_files.txt"
 export prefix="210306_samtools"
-export ref="/home/jkimball/shared/WR_Annotation/NCBI_submission/zizania_palustris_13Nov2018_okGsv_renamedNCBI2.fasta"
+export ref="zizania_palustris_13Nov2018_okGsv_renamedNCBI2.fasta"
 
 parallel_samtools_processes=15
 
