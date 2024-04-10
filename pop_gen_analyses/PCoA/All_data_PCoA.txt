@@ -1,5 +1,3 @@
-#need vcfR to load data
-#open R/4.1.0
 library(vcfR)    
 library(vegan)
 library(tidyverse)
