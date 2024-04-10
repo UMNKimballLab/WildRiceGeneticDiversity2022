@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd ~/main_GBS
 
 # Load fastQC
