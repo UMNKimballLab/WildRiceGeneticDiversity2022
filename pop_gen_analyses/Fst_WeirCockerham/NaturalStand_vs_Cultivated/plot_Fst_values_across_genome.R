@@ -1,4 +1,3 @@
-# wd: /home/jkimball/haasx092/Fst_vcftools
 library(data.table)
 
 # Read in data
