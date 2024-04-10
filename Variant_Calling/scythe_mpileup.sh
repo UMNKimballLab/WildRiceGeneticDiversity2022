@@ -1,3 +1,5 @@
+#!/bin/bash
+
 module load htslib
 module load parallel
 
