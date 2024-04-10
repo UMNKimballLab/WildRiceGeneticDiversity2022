@@ -1,15 +1,11 @@
 # Need to create SNP tables in R narrowed to just Garfield and Shell lake new and old samples, working in R on agate server
-module load R/4.1.0
-R
 library(tidyverse)
 library(glue)
-
 samp<-read.csv("~/Genetic_Diversity/Full_Sample_Key_240122.csv", )
 
 #Narrowing to temporal data
 keep<-c("Garfield Lake", "GarfieldLakeOld","Shell Lake","ShellLakeOld")
 Temp<-samp[(samp$Sample_ID_extended %in% keep),]
-
 names<-Temp$Sample_number
 
 #Matching sample names to those in vcf file to use for splitting them
@@ -24,7 +20,7 @@ Tempdat2<-cbind(Tempdat, Tempdat[,1])
 write.table(Tempdat2, file ="Tempnames.txt", row.names=FALSE, quote=FALSE, col.names=FALSE)
 
 
-save(Temp, names2, Tempdat, Tempdat2 ,file="/home/jkimball/garbe047/Genetic_Diversity/filtering_temporal_231003.Rdata")
+save(Temp, names2, Tempdat, Tempdat2 ,file="~/Genetic_Diversity/filtering_temporal_231003.Rdata")
 
 #Exit R and use plink in linux system
 
@@ -42,7 +38,6 @@ plink --bfile Temporal_binary --recode vcf  --mind 0.95 --allow-extra-chr --out 
 
 #Back to R to use vcf file to get snp count table
 #Using temporal vcf file just created
-#open R/4.1.0
 library(vcfR)    
 library(vegan)
 library(stats)
