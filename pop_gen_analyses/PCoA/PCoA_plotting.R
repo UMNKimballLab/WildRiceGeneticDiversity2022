@@ -1,5 +1,5 @@
 #Set directory and load required packages
-setwd("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA")
+setwd("~/Genetic Diversity/PCOA")
 library(tidyverse)
 library(ggplot2)
 library(ggpubr)
@@ -10,27 +10,26 @@ library(cowplot)
 
 #Load in data for all PCoAs
 ##all data PCA info
-load("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA/230814_Pcoadat.Rdata")
+load("~/Genetic Diversity/PCOA/230814_Pcoadat.Rdata")
 aPCOA<-pcoa
 
 ##temporal data PCA info
-load("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA/231003_Temporal_PCOAdat.Rdata")
+load("~/Genetic Diversity/PCOA/231003_Temporal_PCOAdat.Rdata")
 tPCOA<-pcoa
 
 ##cultivated vs natural stand PCoA info
-load("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA/230929_PCOAdat.Rdata")
+load("~/Genetic Diversity/PCOA/230929_PCOAdat.Rdata")
 
 #Read in sample keys
-sample_data<-read.csv("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA/Updated_Sample_Key_231003.csv")
-sample_data2<-read.csv("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA/Sample_Key_with_cultivated_231003.csv")
-load("G:/My Drive/Kimball lab/Projects/Genetic Diversity/PCOA/filtering_temporal_231003.Rdata")
+sample_data<-read.csv("~/Genetic Diversity/PCOA/Updated_Sample_Key_231003.csv")
+sample_data2<-read.csv("~/Genetic Diversity/PCOA/Sample_Key_with_cultivated_231003.csv")
+load("~/Genetic Diversity/PCOA/filtering_temporal_231003.Rdata")
 nPCOA<-pcoan
 cPCOA<-pcoac
 sample_data$sample_ID_simplified=factor(sample_data$sample_ID_simplified,levels=c("Aquatica_species", "Bass Lake","Clearwater River","Dahler Lake","Decker Lake","Garfield Lake","Mud Hen Lake","Necktie River", "Ottertail River","Phantom Lake","Plantagenet","Shell Lake","Upper Rice Lake","Breeding line"))
 sampn<-sample_data[sample_data2$class == "Natural stand",]
 sampc<-sample_data2[sample_data$class == "Breeding line",]
 Tsamp<-Temp
-
 
 #All data PCoA
 ##Using dist matrices calculated in vegdist - see file All_data_PCoA.txt
@@ -82,7 +81,6 @@ labelst1_2 <- c(glue("PCo Axis 1 ({stibt[1,2]}%)"),
 
 ##Temporal plot for PCo1 an PCo2
 tpcoaplot<-ggplot(positionst2, aes(x=pcoa1, y=pcoa2, shape=sample_ID_simplified, color=sample_ID_simplified)) + geom_point(size=2.5, pch=16) + labs(x=labelst1_2[1], y=labelst1_2[2])+ scale_color_manual(values=c("Garfield Lake"="green3","Garfield Lake Old"="khaki3","Shell Lake"="violet","Shell Lake Old"="purple4"), labels=c("Garfield Lake 2018","Garfield Lake 2010","Shell Lake 2018","Shell Lake 2010"))+theme(panel.background=element_rect(fill="white"), axis.line = element_line(), legend.title=element_blank(), legend.key=element_rect(fill=NA), legend.position="right" , legend.text=element_text(size=10))
-
 
 #Natural stand PCoA
 ##Setting up data into a tibble and merging it with the sample key to get group data
