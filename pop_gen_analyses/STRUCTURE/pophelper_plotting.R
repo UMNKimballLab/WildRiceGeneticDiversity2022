@@ -1,8 +1,7 @@
-setwd("G:/My Drive/Kimball lab/Projects/Genetic Diversity/STRUCTURE")
 library(dplyr)
 library(pophelper)
-load("G:/My Drive/Kimball lab/Projects/Genetic Diversity/STRUCTURE/231025_structuredat.Rdata")
-sfiles <- list.files(path= "G:/My Drive/Kimball lab/Projects/Genetic Diversity/STRUCTURE/Figure", full.names=T)
+load("231025_structuredat.Rdata")
+sfiles <- list.files(path= "~/STRUCTURE/Figure", full.names=T)
 slist<-readQ(files=sfiles)
 
 #Labels for the figures
