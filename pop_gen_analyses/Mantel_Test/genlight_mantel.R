@@ -2,9 +2,9 @@ library(vcfR)
 library(poppr)
 library(ape)
 
-allvcf<-read.vcfR("~/Genetic_Diversity/notemporal.vcf")
+allvcf<-read.vcfR("notemporal.vcf")
 
-samp<-read.csv("/panfs/jay/groups/21/jkimball/garbe047/Genetic_Diversity/SampleKey_Notemporal_240205.csv")
+samp<-read.csv("SampleKey_Notemporal_240205.csv")
 
 #Change Sample_ID of Cultivated samples to NCROC instead of genotype name
 
@@ -22,4 +22,4 @@ ploidy(gl.mantel) <- 2
 pop(gl.mantel) <- samp2$Sample_ID
 
 
-save(gl.mantel,  file="~/Genetic_Diversity/genlight_mantel.Rdata")
+save(gl.mantel,  file="genlight_mantel.Rdata")
