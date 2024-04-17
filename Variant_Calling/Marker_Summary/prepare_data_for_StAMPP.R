@@ -1,12 +1,9 @@
 # Purpose of thie script is to prepare SNP data for use in the R package StAMPP (for Nei's diversity & maybe Fst)
 library(data.table)
 
-# Set working directory
-setwd("~/Documents/wild_rice/genetic_diversity") # path is specific to my mac laptop
-
 # Read in data and key
 data <- fread("220401_natural_stand_only_for_LD_decay.csv")
-key <- fread("../comma-separated_files/191021_main_GBS_sample_key_PBML-C20_renamed.csv")
+key <- fread("191021_main_GBS_sample_key_PBML-C20_renamed.csv")
 
 # Create new column with SNP ID
 data[, snp_id := paste0(scaffold, "_", position)]
