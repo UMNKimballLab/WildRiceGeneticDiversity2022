@@ -1,5 +1,4 @@
 # 23 September 2021
-# WD: /home/jkimball/haasx092/AMOVA
 # Purpose of this code is to perform an AMOVA (analysis of molecular variance)
 
 # Load required packages
