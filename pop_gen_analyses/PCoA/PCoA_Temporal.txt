@@ -1,7 +1,7 @@
 # Need to create SNP tables in R narrowed to just Garfield and Shell lake new and old samples, working in R on agate server
 library(tidyverse)
 library(glue)
-samp<-read.csv("~/Genetic_Diversity/Full_Sample_Key_240122.csv", )
+samp<-read.csv("Full_Sample_Key_240122.csv")
 
 #Narrowing to temporal data
 keep<-c("Garfield Lake", "GarfieldLakeOld","Shell Lake","ShellLakeOld")
@@ -45,7 +45,7 @@ library(tidyverse)
 library(ggplot2)
 library(ggpubr)
 
-vcf<-read.vcfR("~/Genetic_Diversity/Temporal.vcf", convertNA =TRUE)
+vcf<-read.vcfR("Temporal.vcf", convertNA =TRUE)
 
 #Extract numeric genotype data and convert to matrix
 vcf_num<-extract.gt(vcf, element = "GT", IDtoRowNames  = F, as.numeric = T, convertNA = T, return.alleles = F)
@@ -56,7 +56,7 @@ vcf_num_t <- t(vcf_num)
 vcf_num_df <- data.frame(vcf_num_t) 
 
 #read in sample file from before, Temp is the narrowed sample file 
-load("/home/jkimball/garbe047/Genetic_Diversity/filtering_temporal_231003.Rdata")
+load("filtering_temporal_231003.Rdata")
 
 #make sure both sample data and snp table have sample column and that the sample names are the same
 sample_data<-Temp %>% rename("sample" ="sample_number")
@@ -78,5 +78,5 @@ dist<-vegdist(vcfmat, method="jaccard",na.rm=TRUE)
 #Running PcoA with cmdscale(), eig=T returns eigen values and add=T adds a constant so we don't have negative values.
 pcoa <- cmdscale(dist, eig=TRUE, add=TRUE,k=4)
 
-save(vcf, vcf_num, vcf_num_t, vcf_num_df,sample_data,vcf_sample_df, vcf_num_df2, vcf_num_df3,vcfmat,dist,pcoa,file="~/Genetic_Diversity/231003_Temporal_PCOAdat.Rdata")
+save(vcf, vcf_num, vcf_num_t, vcf_num_df,sample_data,vcf_sample_df, vcf_num_df2, vcf_num_df3,vcfmat,dist,pcoa,file="231003_Temporal_PCOAdat.Rdata")
 
