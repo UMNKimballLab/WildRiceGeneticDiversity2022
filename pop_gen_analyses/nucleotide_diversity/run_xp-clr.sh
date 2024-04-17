@@ -1,16 +1,4 @@
 #!/bin/bash -l
-#SBATCH --nodes=1
-#SBATCH --ntasks=32
-#SBATCH --time=24:00:00
-#SBATCH --mem=30g
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=haasx092@umn.edu
-#SBATCH -p amdsmall
-#SBATCH --account=jkimball
-#SBATCH -o run_xp-clr.out
-#SBATCH -e run_xp-clr.err
-
-cd /home/jkimball/haasx092/XP-CLR
 
 ~/XP-CLR/XPCLR/src/XPCLR -xpclr cultivated_genos.1 natural_stand_genos.1 map_data.1 xp-clr_results_ZPchr0001 -w1 0.005 200 2000 1 -p0 0.95
 ~/XP-CLR/XPCLR/src/XPCLR -xpclr cultivated_genos.2 natural_stand_genos.2 map_data.2 xp-clr_results_ZPchr0002 -w1 0.005 200 2000 2 -p0 0.95
