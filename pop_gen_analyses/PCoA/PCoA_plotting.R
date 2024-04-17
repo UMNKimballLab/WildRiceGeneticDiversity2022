@@ -1,5 +1,4 @@
-#Set directory and load required packages
-setwd("~/Genetic Diversity/PCOA")
+#Load required packages
 library(tidyverse)
 library(ggplot2)
 library(ggpubr)
@@ -10,20 +9,20 @@ library(cowplot)
 
 #Load in data for all PCoAs
 ##all data PCA info
-load("~/Genetic Diversity/PCOA/230814_Pcoadat.Rdata")
+load("230814_Pcoadat.Rdata")
 aPCOA<-pcoa
 
 ##temporal data PCA info
-load("~/Genetic Diversity/PCOA/231003_Temporal_PCOAdat.Rdata")
+load("231003_Temporal_PCOAdat.Rdata")
 tPCOA<-pcoa
 
 ##cultivated vs natural stand PCoA info
-load("~/Genetic Diversity/PCOA/230929_PCOAdat.Rdata")
+load("230929_PCOAdat.Rdata")
 
 #Read in sample keys
-sample_data<-read.csv("~/Genetic Diversity/PCOA/Updated_Sample_Key_231003.csv")
-sample_data2<-read.csv("~/Genetic Diversity/PCOA/Sample_Key_with_cultivated_231003.csv")
-load("~/Genetic Diversity/PCOA/filtering_temporal_231003.Rdata")
+sample_data<-read.csv("Updated_Sample_Key_231003.csv")
+sample_data2<-read.csv("Sample_Key_with_cultivated_231003.csv")
+load("filtering_temporal_231003.Rdata")
 nPCOA<-pcoan
 cPCOA<-pcoac
 sample_data$sample_ID_simplified=factor(sample_data$sample_ID_simplified,levels=c("Aquatica_species", "Bass Lake","Clearwater River","Dahler Lake","Decker Lake","Garfield Lake","Mud Hen Lake","Necktie River", "Ottertail River","Phantom Lake","Plantagenet","Shell Lake","Upper Rice Lake","Breeding line"))
