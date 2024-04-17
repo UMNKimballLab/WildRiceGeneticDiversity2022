@@ -4,7 +4,7 @@ library(tidyverse)
 library(ggplot2)
 library(ggpubr)
 
-vcf<-read.vcfR("~/Genetic_Diversity/biallelic_snps_only.recode.vcf", convertNA =TRUE)
+vcf<-read.vcfR("biallelic_snps_only.recode.vcf", convertNA =TRUE)
 
 #Extract numeric genotype data and convert to matrix
 vcf_num<-extract.gt(vcf, element = "GT", IDtoRowNames  = F, as.numeric = T, convertNA = T, return.alleles = F)
@@ -15,7 +15,7 @@ vcf_num_t <- t(vcf_num)
 vcf_num_df <- data.frame(vcf_num_t) 
 
 #read in sample info, I am using this edited sample key from the R file 230804_samplekey_edited_mainGBS.Rdata
-samp<-load("~/Genetic_Diversity/230804_samplekey_edited_mainGBS.Rdata")
+samp<-load("230804_samplekey_edited_mainGBS.Rdata")
 
 #make sure both sample data and snp table have sample column and that the sample names are the same
 sample_data<-sample_data %>% rename("sample" ="sample_number")
@@ -35,9 +35,8 @@ row.names(vcfmat)<-names
 #making dissimilarity matrix, using pairwise deletion of missing values (na.rm=T)
 dist<-vegdist(vcfmat, method="jaccard",na.rm=TRUE)
 
-
 #Running PcoA with cmdscale(), eig=T returns eigen values and add=T adds a constant so we don't have negative values.
 pcoa <- cmdscale(dist, eig=TRUE, add=TRUE,k=4)
 
-save(vcfmat, dist, pcoa, file ="~/Genetic_Diversity/230814_Pcoadat.Rdata")
+save(vcfmat, dist, pcoa, file ="230814_Pcoadat.Rdata")
 
