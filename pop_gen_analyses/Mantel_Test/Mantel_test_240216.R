@@ -1,25 +1,11 @@
----
-title: "Mantel"
-author: "Lillian"
-date: "2024-02-16"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r}
-setwd("G:/My Drive/Kimball lab/Projects/Genetic Diversity/Mantel")
-load("G:/My Drive/Kimball lab/Projects/Genetic Diversity/Mantel/genlight_mantel.Rdata")
+load("genlight_mantel.Rdata")
 library(poppr)
 library(adegenet)
 library(dartR)
 library(tidyverse)
 library(geosphere)
 library(data.table)
-```
-```{r}
+
 #Genetic distance matrix
 genind<-gl2gi(gl.mantel)
 inddist<-as.matrix(dist(genind))
@@ -32,9 +18,7 @@ gendist<-gendist[colorder, colorder]
 gendist[gendist == 0] <- NA
 write.csv(gendist,file="gen_dist_mat_240216.csv")
 write.csv(inddist, file="ind_dist_240222.csv")
-```
 
-```{r}
 data_table <- read.csv("Location_latANDlong.csv")
 
 # Function to calculate distance matrix
@@ -63,27 +47,22 @@ colnames(geodist)<-colorder
 geodist[geodist == 0] <- NA
 
 # Write to CSV file
-#write.csv(distance_matrix, file = "240220_geographical_distance_between_lakes.csv")
-```
-```{r}
+write.csv(distance_matrix, file = "240220_geographical_distance_between_lakes.csv")
+
 #Calculate mantel test
 dgendist<-dist(gendist)
 dgeodist<-dist(geodist)
 mantel <- mantel.rtest(dgeodist, dgendist, nrepet = 1000)
 summary(lm(dgendist ~ dgeodist))
-```
-```{r}
+
 #Histogram
 pdf("240229_hist_for_mantel.pdf")
 plot(mantel, xlab = "Simulated correlation", main = "Mantel test", las = 1)
 dev.off()
 
-```
-```{r}
 #Combine data into one data frame for easier plotting
 df<-data.frame(as.vector(geodist),as.vector(gendist))
 colnames(df)<-c("geodist","gendist")
-
 
 #Calculate a line based on the comparison of gendist and geodist
 mod<-lm(gendist ~ geodist, data = na.omit(df))
@@ -93,5 +72,3 @@ dotplot<-ggplot(data=na.omit(df),aes(geodist, gendist))+geom_point()+geom_smooth
 dotplot
 
 ggsave("Mantel_dotplot_240221.png", dotplot, width=12, height=10)
-
-```
