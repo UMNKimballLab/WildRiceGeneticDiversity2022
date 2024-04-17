@@ -1,0 +1,12 @@
+#In order to align runs for each K from STRUCTURE we need to use CLUMPP, Pophelper has the function CLUMPPexport() that creates the input files needed to run CLUMPP
+#Start by creating the input files needed for CLUMPP using pophelper in R/4.1.0, this will create folders for each K that have a paramfile and a combined run data file 
+
+library(pophelper)
+sfiles <- list.files(path= "/Results/Re-dos", full.names=T) #Replace with filepath to your STRUCTURE results
+slist<-readQ(files=sfiles)
+clumppExport(qlist=slist, exportpath=getwd())
+
+#Go into each folder and run
+file/path/to/CLUMPP
+#Now in each folder you will have an aligned, merged, and misc file which you can use in pophelper to make figures
+
