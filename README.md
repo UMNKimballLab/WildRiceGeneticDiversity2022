@@ -239,7 +239,7 @@ _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild R
 <sup>a</sup> Number of ABBA and BABA sites. _Z. aquatica_ was used as an outgroup for all comparisons.<br>
 <sup>b</sup> Z: Z-score
 
-_D_-statistics (ABBA-BABA) was performed using the the R package [admixTools](https://github.com/DReichLab/AdmixTools). The [admixtools_ABBA-BABA.R](pop_gen_analyses/ABBA-BABA/admixtools_ABBA-BABA.R) script used to launch the analysis is launched by the [run_admixtools.sh](pop_gen_analyses/ABBA-BABA/run_admixtools.sh) script.
+_D_-statistics (ABBA-BABA) was performed using the the R package [admixTools](https://github.com/DReichLab/AdmixTools) using the [admixtools_ABBA-BABA.R](pop_gen_analyses/ABBA-BABA/admixtools_ABBA-BABA.R) script 
 
 ### Table S7
 Table S7 is too large to generate here using Markdown, so you can find it as an Excel file [here]([supplemental_data/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx](pop_gen_analyses/Genome-wide-selection/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx). Values were calculated in the following scripts: [TajimaD](), [Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/Genome-wide-selection/plot_XP-CLR_results.R)
