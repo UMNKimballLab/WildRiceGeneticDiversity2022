@@ -4,7 +4,7 @@ library(ape)
 library(RColorBrewer)
 
 tempvcf<-read.vcfR("~/Genetic_Diversity/temporal.vcf")
-samp<-read.csv("/panfs/jay/groups/21/jkimball/garbe047/Genetic_Diversity/SampleKey_OnlyTemporal_240205.csv")
+samp<-read.csv("SampleKey_OnlyTemporal_240205.csv")
 
 #Make sure number of samples match up
 all(colnames(tempvcf@gt)[-1] == samp$sample_ID_simplified)
@@ -19,4 +19,4 @@ pop(gl.tempvcf) <- samp$Sample_ID
 #Make a tree for all except temporal with 1000 bootstraps, prevosti's distance, cutoff of 50, upgma algorithm
 temptree<-aboot(gl.tempvcf, tree="upgma", distance = bitwise.dist, sample = 1000, showtree=F, cutoff= 50)
 
-save(gl.tempvcf, temptree, file="~/Genetic_Diversity/genlight_temp.Rdata")
+save(gl.tempvcf, temptree, file="genlight_temp.Rdata")
