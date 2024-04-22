@@ -1,0 +1,16 @@
+#In R make a text file of samples to include to use to edit the vcf file
+library(glue)
+
+##All tree (except old temporal samples)
+samp<-read.csv("SampleKey_Notemporal_240205.csv")
+names<-samp$Sample_number
+names2<-glue("{names}/{names}_sorted.bam")
+sampdat<-data.frame(names2)
+write.table(sampdat, file ="samp_alltree.txt", row.names=FALSE, quote=FALSE, col.names=FALSE)
+
+#Close out of R to main command line 
+##Exclude values from vcf that are not part of the final sample key (or 2010 temporal samples)
+module load bcftools
+bcftools view -S samp_alltree.txt biallelic_snps_only.recode.vcf --force-samples -o notemporal.vcf 
+
+
