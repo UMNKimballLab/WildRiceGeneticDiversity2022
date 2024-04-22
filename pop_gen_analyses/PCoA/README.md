@@ -1,1 +1,1 @@
-PCoA calculations were done in the scripts [All_data_PCoA.R](All_data_PCoA.R), [PCOA cultivated and natural stand separate.R](PCOA-cultivated-and-natural-stand-separate.R), and [PCoA_Temporal.txt](PCoA_Temporal.txt). The PCoAs were plotted using the script [PCoA_plotting.R](PCoA_plotting.R).
+PCoA calculations were done in the scripts [All_data_PCoA.R](All_data_PCoA.R), [PCOA_cultivated_and_natural_separate.R](PCOA_cultivated_and_natural_separate.R), and [PCoA_Temporal.txt](PCoA_Temporal.txt). The PCoAs were plotted using the script [PCoA_plotting.R](PCoA_plotting.R).
