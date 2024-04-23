@@ -4,6 +4,7 @@ This repository contains all of the scripts that were developed for the Northern
 
 # Directory
 The purpose of this directory is to easily navigate to specific figures from the manuscript so that you can more easily find detailed information about the scripts that went into creating each figure.
+
 ## Figures
 1. [Figure 1](#Figure-1)
 2. [Figure 2](#Figure-2)
@@ -49,8 +50,7 @@ This figure shows the location of collection sites on public, non-tribal land in
 
 ### Figure 2
 ## Figure 2 code explanation
-The PCoAs were calculated separately for all data, just cultivated, just natural stand, and just temporal data as described in the text files [All_data_PCoA.R]
-(pop_gen_analyses/PCoA/All_data_PCoA.R), [PCOA_cultivated_and_natural_separate.R](/pop_gen_analyses/PCoA/PCOA_cultivated_and_natural_separate.R), and [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_Temporal.txt), respectively. They were then each plotted using the script [PCoA_plotting.R](/pop_gen_analyses/PCoA/PCoA_plotting.R). Sample Keys use in these analyses can be found in the [Sample_Keys](Sample_Keys) directory. 
+The PCoAs were calculated separately for all data, just cultivated, just natural stand, and just temporal data as described in the text files [All_data_PCoA.R](/pop_gen_analyses/PCoA/All_data_PCoA.R), [PCOA_cultivated_and_natural_separate.R](/pop_gen_analyses/PCoA/PCOA_cultivated_and_natural_separate.R), and [PCoA_Temporal.txt](/pop_gen_analyses/PCoA/PCoA_Temporal.txt), respectively. They were then each plotted using the script [PCoA_plotting.R](/pop_gen_analyses/PCoA/PCoA_plotting.R). Sample Keys use in these analyses can be found in the [Sample_Keys](Sample_Keys) directory. 
 
 Principal component analysis plot (PC1 vs PC2) for the complete set<br>
 <img src="images/Figure_2.png" width="500">
