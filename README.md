@@ -267,7 +267,7 @@ Data for this figure as well as figure 3 were organized for input into structure
 <img src="images/Figure_S4.png" width="500">
 
 ### Figure S5
-The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://taylor0.biology.ucla.edu/structureHarvester/)(Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel. There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.<br>
+The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://github.com/dentearl/structureHarvester/) (Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel. There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.
 
 <img src="images/Figure_S5.pdf" width="500">
 
