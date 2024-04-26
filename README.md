@@ -68,7 +68,7 @@ For this analysis a filtered VCF was generated that included all natural stand p
 <img src="images/Figure_4.png" width="500">
 
 ### Figure 5
-The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/Figure-5.Rmd) which imports data from each individual component's analysis so that they can be plotted in the same figure. Individual components were calculated in the following scripts: [Nucleotide diversity](pop_gen_analyses/nucleotide_diversity/calculate_genome-wide_nucleotide_diversity.R) ,[Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/Genome-wide-selection/plot_XP-CLR_results.R)
+The combined sweep plot was generated using [Figure 5.R](pop_gen_analyses/nucleotide_diversity/Figure_5.R) which imports data from each individual component's analysis so that they can be plotted in the same figure. The average nucleotide diversity (pi) was calculated in the script [Calculate_natandcult_nucleotidediv.sh](pop_gen_analyses/nucleotide_diversity/Calculate_natandcult_nucleotidediv.sh) and organized for plotting with the script [calculate_genome-wide_nucleotide_diversity.R](pop_gen_analyses/nucleotide_diversity/calculate_genome-wide_nucleotide_diversity.R). The genome-wide FST was calculated in the scirpt [calculate_Fst_vcftools_natural_stands_vs_cultivated_June_2022.sh](pop_gen_analyses/nucleotide_diversity/calculate_Fst_vcftools_natural_stands_vs_cultivated_June_2022.sh). XP-CLR was calcualted in the [run_xp-clr.sh](pop_gen_analyses/nucleotide_diversity/run_xp-clr.sh) script.
 
 <img src="images/Figure_5.png" width="500">
 
