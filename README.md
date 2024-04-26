@@ -228,7 +228,7 @@ Polymorphic Information Content (PIC) values for 5,955 single nucleotide polymor
 | Upper Rice Lake | 0.1420 | 0.1141 | 0.0010 | 0.3125 | 0.1088 |
 | _Zizania aquatica_ | 0.1496 | 0.1313 | 0.0010 | 0.3125 | 0.1107 |
 
-To calculate the Polymorphism Information Content (PIC) we used the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package. [The Natural Stand calculation script](Variant_Calling/Marker_Summary/NeiD_and_PIC_with_snpReady.R) [Cultivated Calculation script](Variant_Calling/Marker_Summary/Neis_D_cultivated_with_snpReady.R).
+To calculate the Polymorphism Information Content (PIC) we used the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package. [The Natural Stand calculation script](Variant_Calling/Marker_Summary/NeiD_and_PIC_with_snpReady.R) and the [Cultivated Calculation script](Variant_Calling/Marker_Summary/Neis_D_cultivated_with_snpReady.R).
 
 ### Table S6
 _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild Rice (NWR; _Zizania palustris_ L.).
@@ -247,8 +247,8 @@ Table S7 is too large to generate here using Markdown, so you can find it as an 
 # Supplementary Figures
 
 ### Figure S1
-. A county-level map of the United States of Minnesota and western Wisconsin showing where leaf tissue samples of our Northern Wild Rice (NWR; _Zizania palustris_ L.) diversity collection were collected and highlighting counties with significant production of cultivated NWR. Colors correspond to those featured in the principal component analysis (PCA) plots (Figure 2a-b).
-<img src="images/county_map_growing_regions_colored.png" width="500">
+. A county-level map of the United States of Minnesota and western Wisconsin showing where leaf tissue samples of our Northern Wild Rice (NWR; _Zizania palustris_ L.) diversity collection were collected and highlighting counties with significant production of cultivated NWR. Colors correspond to those featured in the principal component analysis (PCoA) plots (Figure 2a-b).
+<img src="images/Figure_S1.png" width="500">
 
 ### Figure S2
 Unweighted pair group method with arithmetic averaging (UPGMA) tree for the combined Natural Stands and Cultivated Material panel. The first step in the pipeline to create the UPGMA trees is [run_bcftools_reheader.sh](pop_gen_analyses/trees/run_bcftools_reheader.sh) which makes a new VCF file with shortened sample names (e.g., only ```Sample_0001``` instead of ```Sample_0001/Sample_0001_sorted.bam```). The next step is to use [filter_with_vcftools_by_ind_natural_stands_and_breed_lines.sh](pop_gen_analyses/trees/filter_with_vcftools_by_ind_natural_stands_and_breed_lines.sh) in order to filter the complete VCF file (with all individuals) so that it only contains the samples that you want to include in the tree (specified by the ```.txt``` file (which also needs to contain the same individuals as the ```.csv``` file used by the R script otherwise you will get an error. The R script [make_tree_natural_stands_and_breeding_lines.R](pop_gen_analyses/trees/make_tree_natural_stands_and_breeding_lines.R) which is launched by [run_make_tree_natural_stands_and_breeding_lines.sh](pop_gen_analyses/trees/run_make_tree_natural_stands_and_breeding_lines.sh) contains the main code for making the figure (getting data into the right format, bootstrapping values, tip label color, etc).<br>
