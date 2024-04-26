@@ -247,71 +247,51 @@ Table S7 is too large to generate here using Markdown, so you can find it as an 
 # Supplementary Figures
 
 ### Figure S1
-. A county-level map of the United States of Minnesota and western Wisconsin showing where leaf tissue samples of our Northern Wild Rice (NWR; _Zizania palustris_ L.) diversity collection were collected and highlighting counties with significant production of cultivated NWR. Colors correspond to those featured in the principal component analysis (PCoA) plots (Figure 2a-b).
+A county-level map of the United States of Minnesota and western Wisconsin showing where leaf tissue samples of our Northern Wild Rice (NWR; _Zizania palustris_ L.) diversity collection were collected and highlighting counties with significant production of cultivated NWR. Colors correspond to those featured in the principal component analysis (PCoA) plots (Figure 2a-b).
 <img src="images/Figure_S1.png" width="500">
 
 ### Figure S2
-Unweighted pair group method with arithmetic averaging (UPGMA) tree for the combined Natural Stands and Cultivated Material panel. The first step in the pipeline to create the UPGMA trees is [run_bcftools_reheader.sh](pop_gen_analyses/trees/run_bcftools_reheader.sh) which makes a new VCF file with shortened sample names (e.g., only ```Sample_0001``` instead of ```Sample_0001/Sample_0001_sorted.bam```). The next step is to use [filter_with_vcftools_by_ind_natural_stands_and_breed_lines.sh](pop_gen_analyses/trees/filter_with_vcftools_by_ind_natural_stands_and_breed_lines.sh) in order to filter the complete VCF file (with all individuals) so that it only contains the samples that you want to include in the tree (specified by the ```.txt``` file (which also needs to contain the same individuals as the ```.csv``` file used by the R script otherwise you will get an error. The R script [make_tree_natural_stands_and_breeding_lines.R](pop_gen_analyses/trees/make_tree_natural_stands_and_breeding_lines.R) which is launched by [run_make_tree_natural_stands_and_breeding_lines.sh](pop_gen_analyses/trees/run_make_tree_natural_stands_and_breeding_lines.sh) contains the main code for making the figure (getting data into the right format, bootstrapping values, tip label color, etc).<br>
+A PCoA plot of all samples using principal coordinates 1 and 3. The PCoA was generated in the [All_data_PCoA.R](pop_gen_analyses/PCoA/All_data_PCoA.R) script and then plotted in the [PCoA_plotting.R](pop_gen_analyses/PCoA/PCoA_plotting.R) script.
 
-The default style for the UPGMA tree is `phyogram` according to the [_ape_ documentation](https://www.rdocumentation.org/packages/ape/versions/5.6-2/topics/plot.phylo). This is what we originally used, but I never liked how it appeared and I think the `fan` version is easier to interpret. It also makes the figure more compact, which I think helps in viewing the entire tree at once. The `radial` style is also circular, but I don't think it looks as clean as the `fan` style.<br><br>
-Another new aspect of this tree vs. the original version is that the branches (or _edges_ using the _ape_ terminology) are colored to match the tip colors. This was acheived using the argument `edge.color = edge_colors` in the `plot.phylo()` function from the _ape_ R package. Together, the two changes described here are accomplished by executing this line of code:
-```R
-plot.phylo(tree, cex = 1.5, font = 2, adj = 0, type = "fan", edge.color = edge_colors, tip.color =  hexColorList[pop(gen_light_x)])
-```
-**Note:** This is very similar to the original code. The only difference is that in the original, the arguments `type = "fan"` and `edge.color = edge_colors` were not included so the function used their default values ("phylogram" for `type` and "black" for `edge.color`.)<br>
-
-To add colors to the edges (branches), you should first initialize the "edge_colors" object. I did that using the following code:
-```R
-edge_colors <- rep("grey", Nedge(tree))
-```
-The `rep()` function will create an object that I've decided to call "edge_colors" with as many occurrences of the word "grey"  as there are edges (branches) in the `tree` object. The default is "black" as stated above, but in our combined PCA plot, we chose to make all of the cultivated material colored grey so that the natural stands would stick out. The approach we are using here (in combination with the next steps) will result in all of the cultivated material being colored grey without having to manually define each and every cultivated variety since there are a bunch of them with complex names (since some of the names offer insight into crosses that went into particular lines and aren't as simple as "Barron", "FY-C20", etc.).
-
-I added lake/river-specific colors to the "edge_colors" object using the `which.edge()` function from the `ape` R packege. You can find documentation for that [here](https://rdrr.io/cran/ape/man/which.edge.html). The function returns a vector containing numbers matching the edges (branches) that meet a specific condition. Please see the line below for example code:<br>
-```R
-BassLake <- which.edge(tree, "Bass Lake")
-```
-The [script](pop_gen_analyses/trees/make_tree_natural_stands_and_breeding_lines.R) repeats this function for each individual lake or river.<br>
-
-Colors are then added to the appropriate positions inside the "edge_colors" object using the following code:<br>
-```R
-edge_colors[BassLake] <- "red"
-```
-You will then repeat this step for each of the individual lakes/rivers like you did with the `which.edge()` function to insert the correct color that matches the collection map and PCA plots.
-
-The resulting figure (from the `plot.phylo()` function above) will look like this:<br>
-<img src="images/natural_stand_and_breeding_lines_no_GPP_or_GPN_tree_fan.png" width="500">
+<img src="images/Figure_S2.png" width="500">
 
 ### Figure S3
-The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://taylor0.biology.ucla.edu/structureHarvester/)(Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel.There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.<br>
-<img src="images/deltaK.png" width="500">
+Unweighted pair group method with arithmetic averaging (UPGMA) tree for the combined Natural Stands and Cultivated Material panel. A reduced VCF file that exluded temporal samples was made in the [Make_Alltree_vcf.txt](pop_gen_analyses/UPGMA_Trees/Make_Alltree_vcf.txt) script. A Genlight object was created and tree calculations were done in the [UPGMA__genlight_and_tree_all.R](pop_gen_analyses/UPGMA_Trees/UPGMA__genlight_and_tree_all.R) script. The tree was then plotted in the script [Plot_UPGMA_trees.R](pop_gen_analyses/UPGMA_Trees/Plot_UPGMA_trees.R) script. 
+
+<img src="images/Figure_S3.png" width="500">
 
 ### Figure S4
-Mantel test results. The plot shows the correlation between geographic distance (x-axis) and genetic distance (y-axis). Geographic distance (in kilometers) and genetic distance (as Prevosti's distance, also used in our UPGMA trees) were used as input. Units shown are not the same as the input units.<br>
-<img src="images/220406_dotplot_for_mantel_incl_ItascaC12_with_regression.png" width="500">
+Population structure analysis of Northern Wild Rice (NWR; Zizania palustris L.) Natural Stand and Cultivated collections using the program STRUCTURE with 10,000 reps and a burn-in length of 1,000 for K=5, 10, and 14.
+Data for this figure as well as figure 3 were organized for input into structure in the script [Organize_data_forStructure.R](pop_gen_analyses/STRUCTURE/Organize_data_forStructure.R). Data was then run through STRUCTURE using the parameters described in that script. As multiple runs of each K value were conducted, runs for each K value were aligned as described in the script [Aligning STRUCTURE runs within K values](pop_gen_analyses/STRUCTURE/Align_STRUCTURE_runs_within_Kvals.txt). Merged runs were then plotted with pophelper as described in the script [pophelper_plotting.R](pop_gen_analyses/STRUCTURE/pophelper_plotting.R)
 
-The Mantel test was conducted in the R statistical environment using the [mantel_test.R](pop_gen_analyses/mantel_test.R) script. It contains the code for both the dot plot with regression line as well as the histogram of permutation testing. **Note:** Itasca-C12 was included to be representative of the Cultivated Material with the NCROC as its geographic coordinate to serve as a reference (since it is also the reference genome that was used for short read alignment and SNP calling) despite concerns that it is not a Natural Stand and may not be appropriate to incude (since it is subject to artificial selection and artificial planting and therefore not subject to natural evolutionary forces).
+<img src="images/Figure_S4.png" width="500">
 
 ### Figure S5
-Results of permutation testing. The histogram shows the frequency of simulated correlation tests resulting from permutation tests. The black diamond with a vertical line beneath it shows the actual correlation value from our Mantel (Figure S4) test using real data. This signifies that our results are unlikely to have been reached by chance.<br>
-<img src="images/211025_mantel_test_incl_ItascaC12.png" width="500">
+The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://taylor0.biology.ucla.edu/structureHarvester/)(Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel. There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.<br>
 
-This histogram was created using the [mantel_test.R](pop_gen_analyses/mantel_test.R) script.
+<img src="images/Figure_S5.png" width="500">
 
 ### Figure S6
-Linkage disequilibrium decay for all chromosomes and scaffolds of Northern Wild Rice (NWR; _Zizania palustris_ L.) based on 5,955 single nucleotide polymorphism (SNP) markers generated via genotyping-by-sequencing (GBS).<br>
-<img src="images/linkage_disequilibrium_plots_imputed_with_beagle.png" width="500">
+A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). The regression line, y = 0.1 + 0.0002x, was also plotted.
 
-This plot was created using the [calculate_LD_decay.R](pop_gen_analyses/linkage_disequilibrium/calculate_LD_decay.R) script. This analysis used imputed data because the `LD.decay()` function from the [sommer](https://rdrr.io/cran/sommer/) R package requires no missing data. The first round of linkage disequilibrium analysis was done by Reneth in TASSEL and these results compare favorably with her results. The script that I used to recreate her TASSEL plots (in R) can be found [here](other_scripts/recreate_tassel_LD_plots.R). **Note:** They all have "_50slidingwindow.csv" as part of the filename.
+<img src="images/Figure_S6.png" width="500">
+
+The Mantel test was conducted using the R script [Mantel_test_240216.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) from a genlight object made with the script [genlight_mantel.R](pop_gen_analyses/Mantel_Test/genlight_mantel.R). The script uses the implementation of the Mantel test in the R package [_ade4_](https://cran.r-project.org/web/packages/ade4/index.html).
 
 ### Figure S7
+A histogram of the frequency of simulated correlation tests resulting from permutation testing for the Mantel test analysis of the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris). The black diamond with a vertical line beneath it shows the actual correlation value from the Mantel (Figure S4) test using real data.
+
+<img src="images/Figure_S7.png" width="500">
+
+This histogram was created using the [mantel_test.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) script.
+
+### Figure S8
+Unweighted pair group method with arithmetic averaging (UPGMA) tree for the temporal panel. A reduced VCF file that included only temporal samples was made in the [Make_temporal_vcf.txt](pop_gen_analyses/UPGMA_Trees/Make_temporal_vcf.txt) script. A Genlight object was created and tree calculations were done in the [UPGMA__genlight_and_tree_temporal.R](pop_gen_analyses/UPGMA_Trees/UPGMA_genlight_and_tree_temporal.R) script. The tree was then plotted in the script [Plot_UPGMA_trees.R](pop_gen_analyses/UPGMA_Trees/Plot_UPGMA_trees.R) script.
+
+<img src="images/Figure_S8.png" width="500">
+
+### Figure S9
 Site spectrum frequency histograms for our a.) Natural Stand collection and b.) Cultivated collection of Northern Wild Rice (NWR; _Zizania palustris_ L.) based on 5,955 single nucleotide polymorphism (SNP) markers generated via genotyping-by-sequencing (GBS).<br>
-<img src="images/220418_site_spectrum_frequency_separate_classes.png" width="500">
+<img src="images/Figure_S9.png" width="500">
 
 The figure was made using the [plot_site_spectrum_frequency.R](pop_gen_analyses/plot_site_spectrum_frequency.R) script. Calculations were done in Excel and can be found in the file **snp_matrices_with_SFS_calcs.xlsx**. I tried to link to it here, but the file size is too big (almost 70 Mb) so it is in our Google Drive and in our DRUM submissin. Briefly, the SNP matrix was arranged so that columns represent individuals (samples) and rows represent SNPs. Six colummns were added to the end of the SNP matrix (0=reference allele; 1=heterozygous; 2=alternate allele; NA=missing; Total=total number of individuals; Total_no_NA=total number of individuals with data). Two additional columns were added: ref_allele_freq and alt_allele_freq for reference allele frequency and alternate allele frequency, respectively. The reference allele frequency was calculated by adding $2\times ref count$ to the heterozygous count and dividing by _twice_ the total number of non-missing calls. Similarly, the alternate allele frequency was calculated by adding $2\times alt count$ to the heterozygous count and dividing by _twice_ the total number of non-missing calls. **Note:** we could also have done this by subtracting the ref allele count from 1, but this got us the same result. Also note that the reason we used twice the number of reference, alternate, and total counts is because NWR is a diploid organism  so each call represents two alleles and we are calculating _allele frequency_. We could also have reached the same result by keeping the reference, alternate, and total counts the same and only adding _half_ of the heterozygous counts to each calculation. We then counted the number of occurrences of each allele frequency in bins of 2 percent (e.g., 0.00-0.019, 0.02-0.039, 0.04-0.059, etc). _These_ numbers (calculated separately for Natural Stands and Cultivated Material) were hard-coded into the R script.
-
-### Other scripts
-#### Exploratory work
-There are some other file preseent in this repository that didn't make it into the manuscript, but are here nonetheless. Rather than permanently remove them, the purpose of this section is to briefly explain what they were used for.
-1. [plotting_dv-dp_ratios.R](exploratory_work/plotting_dv-dp_ratios.R) was used to look at the dv/dp (depth of the variant/total depth of a SNP) to confir that NWR is in fact a diploid. The ploidy was briefly called into question because the size of the genome assembly came in at 1.29 Gb, which is much larger than initially expected. The output of this script confirmed that NWR is indeed a diploid. Later, we also did flow cytometry and the result of that experiment showed that the true size of the NWR genome is closer to 1.8 Gb.
-2. [plot_effect_of_hwe_on_Fst.R](exploratory_work/plot_effect_of_hwe_on_Fst.R) was used to explore how altering the Hardy-Weinberg Equilibrium filtering parameter in VCFtools affected the _Fst_ values. This was done because the _Fst_ values were considerably lower than expected based on previous literature. 
-3. [plot_effect_of_mac_on_Fst.R](exploratory_work/plot_effect_of_mac_on_Fst.R) was used to explore how altering the minor allele frequency (or count) parameter in VCFtools affected the _Fst_ values. While altering this parameter had the greatest effect on _Fst_ values, changing them did not greatly affect the overall _Fst_ results.
