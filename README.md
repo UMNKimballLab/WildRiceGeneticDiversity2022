@@ -269,7 +269,7 @@ Data for this figure as well as figure 3 were organized for input into structure
 ### Figure S5
 The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://taylor0.biology.ucla.edu/structureHarvester/)(Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel. There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.<br>
 
-<img src="images/Figure_S5.png" width="500">
+<img src="images/Figure_S5.pdf" width="500">
 
 ### Figure S6
 A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). The regression line, y = 0.1 + 0.0002x, was also plotted.
