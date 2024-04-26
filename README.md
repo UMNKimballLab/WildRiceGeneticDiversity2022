@@ -96,13 +96,13 @@ Summary marker statistics for 5,955 Northern Wild Rice (NWR; Zizania palustris L
 | ZPchr0016    | 13.8       | 88        | 1.48%           | 6                          | 6.82%                                     |
 | ZPchr0458    | 4.3        | 5         | 0.08%           | 3                          | 60.00%                                    |
 
-The number of genes that reside in genic regions are explained in the README file for the `count_snps_in_genes` directory, but I will also briefly explain the process/logic here. The script [bedtools_find_snps_in_genes.sh](count_snps_in_genes/bedtools_find_snps_in_genes.sh) uses the [`bedtools intersect`](https://bedtools.readthedocs.io/en/latest/content/tools/intersect.html) function to find which of my SNPs (in a VCF file) are located in genes (via the GFF3 file). The results are then written to another VCF file (`snps_in_genes.vcf`). A quick one-liner can be used to count the number of SNPS in genes on each chromosome:<br>
+The number of genes that reside in genic regions are explained in the [count_snps_in_genes](Variant_Calling/count_snps_in_genes/README.md) README file. The script [bedtools_find_snps_in_genes.sh](Variant_Calling/count_snps_in_genes/bedtools_find_snps_in_genes.sh) uses the [`bedtools intersect`](https://bedtools.readthedocs.io/en/latest/content/tools/intersect.html) function to find which SNPs (in a VCF file) are located in genes (via the GFF3 file). The results are then written to another VCF file (`snps_in_genes.vcf`). A quick one-liner can be used to count the number of SNPS in genes on each chromosome:<br>
 ```bash
 grep -v "^#" snps_in_genes.vcf | cut -f 1 | sort | uniq -c
 ```
 
 ### Table 2
-Analysis of Molecular Variance (AMOVA). The AMOVA was performed using the [AMOVA.R](pop_gen_analyses/AMOVA/AMOVA.R) R script launched by [run_AMOVA.sh](pop_gen_analyses/AMOVA/run_AMOVA.sh). The Cultivated vs. Cultivated was re-run in the script [AMOVA_cultvcult.Rmd](pop_gen_analyses/AMOVA/AMOVA_cultvcult.Rmd) as the number of samples had to be adjusted after the initial calculation. 
+Analysis of Molecular Variance (AMOVA). The AMOVA was performed using the [AMOVA.R](pop_gen_analyses/AMOVA/AMOVA.R) R script launched by [run_AMOVA.sh](pop_gen_analyses/AMOVA/run_AMOVA.sh). The Cultivated vs. Cultivated was re-run in the script [AMOVA_cultvcult.Rmd](pop_gen_analyses/AMOVA/AMOVA_cultvcult.R) as the number of samples had to be adjusted after the initial calculation. 
 
 | Grouping | Source of variation | df | MS | Sigma | % | Probability |
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: |
@@ -162,7 +162,7 @@ List of samples in our diversity collection of Northern Wild Rice (NWR; _Zizania
 | VN/3\*K2EF | 4 | Cultivated | n/a | n/a |
 
 ### Table S2
-Geographic distance (km) matrix of US states of Minnesota and Wisconsin lakes and rivers where Northern Wild Rice (NWR; _Z. palustris_ L.) leaf tissue samples were collected along with watershed designations for the Upper Mississippi River (UMR), Red River of the North (RRN), and St. Croix River (SCR). Geographic distance was calculated in the [Mantel test script](pop_gen_analyses/Mantel_Test/Mantel_test_240216.Rmd) 
+Geographic distance (km) matrix of US states of Minnesota and Wisconsin lakes and rivers where Northern Wild Rice (NWR; _Z. palustris_ L.) leaf tissue samples were collected along with watershed designations for the Upper Mississippi River (UMR), Red River of the North (RRN), and St. Croix River (SCR). Geographic distance was calculated in the [Mantel test script](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) 
 |Natural Population (Watershed) | _Z. aquatica_ | Bass Lake | Clearwater River | Dahler Lake | Decker Lake | Garfield Lake | Mud Hen Lake | Necktie River | Ottertail Lake | Phantom Lake | (Lake) Plantagenet | Shell Lake | Upper Rice Lake |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | _Z. aquatica_ (UMR) | | 156.7 | 198.2 | 88.7 | 188.6 | 146.3 | 139.1 | 154.9 | 133.7 | 124.6 | 166.4 | 146.3 | 180.4 |
@@ -183,7 +183,7 @@ Geographic distance (km) matrix of US states of Minnesota and Wisconsin lakes an
 Table S3 is too large to generate here using Markdown, so you can find it as an Excel file [here](Sample_Keys/Full_Sample_Key_240122.xlsx).
 
 ### Table S4
-The Transition/Transversion ratios were generated using the script [calculate_TsTv_vcftools.sh](vcftools_scripts_incl_nonbiallelic/calculate_TsTv_vcftools.sh). Additional details can be found within the directory containing the script.
+The Transition/Transversion ratios were generated using the script [calculate_TsTv_vcftools.sh](Variant_Calling/calculate_TsTv_vcftools.sh). Additional details can be found [here](Variant_Calling/README.md).
 <!---
 Note: In order to get non-breaking white space in 'original scaffold name' and 'genome wide', I had to hold down the alt/option button on my Mac while typing the space. Otherwise the table looks ugly due to text wrapping for those columns. Other computer types like a PC may have different keystrokes to achieve same goal.
 -->
@@ -228,7 +228,7 @@ Polymorphic Information Content (PIC) values for 5,955 single nucleotide polymor
 | Upper Rice Lake | 0.1420 | 0.1141 | 0.0010 | 0.3125 | 0.1088 |
 | _Zizania aquatica_ | 0.1496 | 0.1313 | 0.0010 | 0.3125 | 0.1107 |
 
-To calculate the Polymorphism Information Content (PIC) we used the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package. [The Natural Stand calculation script](pop_gen_analyses/Diversity_Statistics/NeiD_and_PIC_with_snpReady.R) [Cultivated Calculation script](pop_gen_analyses/Diversity_Statistics/Neis_D_cultivated_with_snpReady.R).
+To calculate the Polymorphism Information Content (PIC) we used the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package. [The Natural Stand calculation script](Variant_Calling/Marker_Summary/NeiD_and_PIC_with_snpReady.R) [Cultivated Calculation script](Variant_Calling/Marker_Summary/Neis_D_cultivated_with_snpReady.R).
 
 ### Table S6
 _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild Rice (NWR; _Zizania palustris_ L.).
@@ -242,7 +242,7 @@ _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild R
 _D_-statistics (ABBA-BABA) was performed using the the R package [admixTools](https://github.com/DReichLab/AdmixTools) using the [admixtools_ABBA-BABA.R](pop_gen_analyses/ABBA-BABA/admixtools_ABBA-BABA.R) script 
 
 ### Table S7
-Table S7 is too large to generate here using Markdown, so you can find it as an Excel file [here]([supplemental_data/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx](pop_gen_analyses/Genome-wide-selection/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx). Values were calculated in the following scripts: [TajimaD](), [Genome-wide Fst](pop_gen_analyses/Fst_WeirCockerham/plot_Fst_values_across_genome.R), [XP-CLR](pop_gen_analyses/Genome-wide-selection/plot_XP-CLR_results.R)
+Table S7 is too large to generate here using Markdown, so you can find it as an Excel file [here](pop_gen_analyses/nucleotide_diversity/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx). Values were calculated in the following scripts: [TajimaD](pop_gen_analyses/nucleotide_diversity/Calculate_TajimaD.sh), [Genome-wide Fst](pop_gen_analyses/nucleotide_diversity/calculate_Fst_vcftools_natural_stands_vs_cultivated_June_2022.sh), [XP-CLR](pop_gen_analyses/nucleotide_diversity/run_xp-clr.sh)
 
 # Supplementary Figures
 
