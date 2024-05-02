@@ -248,6 +248,7 @@ Table S7 is too large to generate here using Markdown, so you can find it as an 
 
 ### Figure S1
 A county-level map of the United States of Minnesota and western Wisconsin showing where leaf tissue samples of our Northern Wild Rice (NWR; _Zizania palustris_ L.) diversity collection were collected and highlighting counties with significant production of cultivated NWR. Colors correspond to those featured in the principal component analysis (PCoA) plots (Figure 2a-b).
+
 <img src="images/Figure_S1.png" width="500">
 
 ### Figure S2
