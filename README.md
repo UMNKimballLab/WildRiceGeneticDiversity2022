@@ -231,6 +231,9 @@ Polymorphic Information Content (PIC) values for 5,955 single nucleotide polymor
 To calculate the Polymorphism Information Content (PIC) we used the [snpReady](https://cran.r-project.org/web/packages/snpReady/vignettes/snpReady-vignette.html) R package. [The Natural Stand calculation script](Variant_Calling/Marker_Summary/NeiD_and_PIC_with_snpReady.R) and the [Cultivated Calculation script](Variant_Calling/Marker_Summary/Neis_D_cultivated_with_snpReady.R).
 
 ### Table S6
+Migration rates calculated by BayesAss3 using 1,000,000 burn-in, 10,000,000 iterations, sampling of 200, deltaF=0.1, deltaA=0.25 and deltaM=0.1 This table is too big for rendering but can be downloaded from [here](pop_gen_analyses/Migration/Table_S6.csv).
+
+### Table S7
 _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild Rice (NWR; _Zizania palustris_ L.).
 | P1 | P2 | P3 | ABBA<sup>a</sup> | BABA<sup>a</sup> | BBAA<sup>a</sup> | D | p-value | F4-ratio | Z<sup>b</sup> |
 | :---: | :---: | :---: |:---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -241,8 +244,8 @@ _D_-statistics (ABBA-BABA) results for a diversity collection of Northern Wild R
 
 _D_-statistics (ABBA-BABA) was performed using the the R package [admixTools](https://github.com/DReichLab/AdmixTools) using the [admixtools_ABBA-BABA.R](pop_gen_analyses/ABBA-BABA/admixtools_ABBA-BABA.R) script 
 
-### Table S7
-Table S7 is too large to generate here using Markdown, so you can find it as an Excel file [here](pop_gen_analyses/nucleotide_diversity/Table_S7_significant_values_TajimaD_Fst_XP-CLR.xlsx). Values were calculated in the following scripts: [TajimaD](pop_gen_analyses/nucleotide_diversity/Calculate_TajimaD.sh), [Genome-wide Fst](pop_gen_analyses/nucleotide_diversity/calculate_Fst_vcftools_natural_stands_vs_cultivated_June_2022.sh), [XP-CLR](pop_gen_analyses/nucleotide_diversity/run_xp-clr.sh)
+### Table S8
+Table S8 is too large to generate here using Markdown, so you can find it as an Excel file [here](pop_gen_analyses/nucleotide_diversity/Table_S8.xlsx). Values were calculated in the following scripts: [TajimaD](pop_gen_analyses/nucleotide_diversity/Calculate_TajimaD.sh), [Genome-wide Fst](pop_gen_analyses/nucleotide_diversity/calculate_Fst_vcftools_natural_stands_vs_cultivated_June_2022.sh), [XP-CLR](pop_gen_analyses/nucleotide_diversity/run_xp-clr.sh)
 
 # Supplementary Figures
 
