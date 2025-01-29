@@ -14,8 +14,9 @@ gendist<-as.matrix(dist.genpop(genpop, method=5))
 colorder<-c("Aquatica_species", "Bass Lake", "Clearwater River", "Dahler Lake", "Decker Lake","Garfield Lake", "Mud Hen Lake", "Necktie River", "Ottertail River", "Phantom Lake", "Plantagenet", "Shell Lake", "Upper Rice Lake","NCROC")
 gendist<-gendist[colorder, colorder]
 
-#Exclude 0s which are just comparing the same population to itself
+#Exclude 0s which are just comparing the same population to itself, remove samples from the NCROC to just include natural stand
 gendist[gendist == 0] <- NA
+gendist<- gendist[rownames(gendist) != "NCROC", colnames(gendist) != "NCROC"]
 write.csv(gendist,file="gen_dist_mat_240216.csv")
 write.csv(inddist, file="ind_dist_240222.csv")
 
