@@ -1,0 +1,10 @@
+#!/bin/bash -l
+#SBATCH --nodes=1
+#SBATCH --ntasks=5
+#SBATCH --time=40:00:00
+#SBATCH --mem-per-cpu=15gb
+#SBATCH -o bayesass_lim.out
+#SBATCH -e bayesass_lim.err
+cd ~/Genetic_Diversity/BayesAss/
+#Estimated values: 10,0000,000 iterations, 1,000,000 burn-in, sampling of 200, seed set to 1234, deltaF 0.1, DeltaA 0.25, Deltam 0.1
+BA3SNP -i 10000000 -b 1000000 -n 200 -s 1234 -f 0.1 -a 0.25 -m 0.1 -t -o Lim_EstimatedVal1_250114.txt input_BA3_lim_250114.txt
