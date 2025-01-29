@@ -283,9 +283,11 @@ The Evanno method (Evanno 2005) was carried out by uploading our results from ST
 
 
 ### Figure S7
-A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). The regression line, y = 0.1 + 0.0002x, was also plotted.
+A. A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) with regression line, y=0.1 + 0.0002x for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). and  B. Isolation by distance plot showing the correlation between geographic distance and Fst/(1-Fst), with regression line, y=0.06 + 0.0002x, for the Natural Stand collection of Northern Wild Rice. 
 
 The Mantel test was conducted using the R script [Mantel_test_240216.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) from a genlight object made with the script [genlight_mantel.R](pop_gen_analyses/Mantel_Test/genlight_mantel.R). The script uses the implementation of the Mantel test in the R package [_ade4_](https://cran.r-project.org/web/packages/ade4/index.html).
+
+The isolation by distance plot was made using the script [Isolation_by_Distance_Plot](pop_gen_analyses/Mantel_Test/Isolation_by_Distance_Plot.R).
 
 
 <img src="images/Figure_S7.png" width="500">
@@ -300,3 +302,5 @@ This histogram was created using the [mantel_test.R](pop_gen_analyses/Mantel_Tes
 
 ### Figure S9
 Unweighted pair group method with arithmetic averaging (UPGMA) tree for the temporal panel. A reduced VCF file that included only temporal samples was made in the [Make_temporal_vcf.txt](pop_gen_analyses/UPGMA_Trees/Make_temporal_vcf.txt) script. A Genlight object was created and tree calculations were done in the [UPGMA__genlight_and_tree_temporal.R](pop_gen_analyses/UPGMA_Trees/UPGMA_genlight_and_tree_temporal.R) script. The tree was then plotted in the script [Plot_UPGMA_trees.R](pop_gen_analyses/UPGMA_Trees/Plot_UPGMA_trees.R) script.
+
+<img src="images/Figure_S9.png" width="500">
