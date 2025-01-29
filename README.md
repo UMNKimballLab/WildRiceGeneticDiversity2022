@@ -260,18 +260,19 @@ A PCoA plot of all samples using principal coordinates 1 and 3. The PCoA was gen
 <img src="images/Figure_S2.png" width="500">
 
 ### Figure S3
-Unweighted pair group method with arithmetic averaging (UPGMA) tree for the combined Natural Stands and Cultivated Material panel. A reduced VCF file that exluded temporal samples was made in the [Make_Alltree_vcf.txt](pop_gen_analyses/UPGMA_Trees/Make_Alltree_vcf.txt) script. A Genlight object was created and tree calculations were done in the [UPGMA__genlight_and_tree_all.R](pop_gen_analyses/UPGMA_Trees/UPGMA__genlight_and_tree_all.R) script. The tree was then plotted in the script [Plot_UPGMA_trees.R](pop_gen_analyses/UPGMA_Trees/Plot_UPGMA_trees.R) script. 
+NeighborNet diagram by individual generated in Splitstree. Distance matrix and nexus file for loading into Splitstree was generated using the script [Make_Nexus_Ind](pop_gen_analyses/NeighborNet/Make_Nexus_Ind.R). 
 
 <img src="images/Figure_S3.png" width="500">
 
 ### Figure S4
+NeighborNet diagram by population generated in Splitstree. Distance matrix and nexus file for loading into Splitstree was generated using the script [Make_Nexus_Pop
+](pop_gen_analyses/NeighborNet/Make_Nexus_Pop.R).
 
 <img src="images/Figure_S4.png" width="500">
 
 ### Figure S5
 Population structure analysis of Northern Wild Rice (NWR; Zizania palustris L.) Natural Stand and Cultivated collections using the program STRUCTURE with 10,000 reps and a burn-in length of 1,000 for K=5, 10, and 14.
 Data for this figure as well as figure 3 were organized for input into structure in the script [Organize_data_forStructure.R](pop_gen_analyses/STRUCTURE/Organize_data_forStructure.R). Data was then run through STRUCTURE using the parameters described in that script. As multiple runs of each K value were conducted, runs for each K value were aligned as described in the script [Aligning STRUCTURE runs within K values](pop_gen_analyses/STRUCTURE/Align_STRUCTURE_runs_within_Kvals.txt). Merged runs were then plotted with pophelper as described in the script [pophelper_plotting.R](pop_gen_analyses/STRUCTURE/pophelper_plotting.R)
-
 
 <img src="images/Figure_S5.png" width="500">
 
@@ -280,7 +281,6 @@ The Evanno method (Evanno 2005) was carried out by uploading our results from ST
 
 <img src="images/Figure_S6.png" width="500">
 
-The Mantel test was conducted using the R script [Mantel_test_240216.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) from a genlight object made with the script [genlight_mantel.R](pop_gen_analyses/Mantel_Test/genlight_mantel.R). The script uses the implementation of the Mantel test in the R package [_ade4_](https://cran.r-project.org/web/packages/ade4/index.html).
 
 ### Figure S7
 A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). The regression line, y = 0.1 + 0.0002x, was also plotted.
