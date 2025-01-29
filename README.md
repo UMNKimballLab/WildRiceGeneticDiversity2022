@@ -265,37 +265,38 @@ Unweighted pair group method with arithmetic averaging (UPGMA) tree for the comb
 <img src="images/Figure_S3.png" width="500">
 
 ### Figure S4
-Population structure analysis of Northern Wild Rice (NWR; Zizania palustris L.) Natural Stand and Cultivated collections using the program STRUCTURE with 10,000 reps and a burn-in length of 1,000 for K=5, 10, and 14.
-Data for this figure as well as figure 3 were organized for input into structure in the script [Organize_data_forStructure.R](pop_gen_analyses/STRUCTURE/Organize_data_forStructure.R). Data was then run through STRUCTURE using the parameters described in that script. As multiple runs of each K value were conducted, runs for each K value were aligned as described in the script [Aligning STRUCTURE runs within K values](pop_gen_analyses/STRUCTURE/Align_STRUCTURE_runs_within_Kvals.txt). Merged runs were then plotted with pophelper as described in the script [pophelper_plotting.R](pop_gen_analyses/STRUCTURE/pophelper_plotting.R)
 
 <img src="images/Figure_S4.png" width="500">
 
 ### Figure S5
-The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://github.com/dentearl/structureHarvester/) (Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel. There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.
+Population structure analysis of Northern Wild Rice (NWR; Zizania palustris L.) Natural Stand and Cultivated collections using the program STRUCTURE with 10,000 reps and a burn-in length of 1,000 for K=5, 10, and 14.
+Data for this figure as well as figure 3 were organized for input into structure in the script [Organize_data_forStructure.R](pop_gen_analyses/STRUCTURE/Organize_data_forStructure.R). Data was then run through STRUCTURE using the parameters described in that script. As multiple runs of each K value were conducted, runs for each K value were aligned as described in the script [Aligning STRUCTURE runs within K values](pop_gen_analyses/STRUCTURE/Align_STRUCTURE_runs_within_Kvals.txt). Merged runs were then plotted with pophelper as described in the script [pophelper_plotting.R](pop_gen_analyses/STRUCTURE/pophelper_plotting.R)
+
 
 <img src="images/Figure_S5.png" width="500">
 
 ### Figure S6
-A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). The regression line, y = 0.1 + 0.0002x, was also plotted.
+The Evanno method (Evanno 2005) was carried out by uploading our results from STRUCTURE (Pritchard et al. 2000) into the program [STRUCTURE harvester](https://github.com/dentearl/structureHarvester/) (Earl and vonHoldt, 2012). DeltaK is minimized at K=5, suggesting that there are 5 subpopulations present in our diversity panel. There's no code to show for this figure because we simply uploaded data from STRUCTURE and uploaded it to this website.
 
 <img src="images/Figure_S6.png" width="500">
 
 The Mantel test was conducted using the R script [Mantel_test_240216.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) from a genlight object made with the script [genlight_mantel.R](pop_gen_analyses/Mantel_Test/genlight_mantel.R). The script uses the implementation of the Mantel test in the R package [_ade4_](https://cran.r-project.org/web/packages/ade4/index.html).
 
 ### Figure S7
-A histogram of the frequency of simulated correlation tests resulting from permutation testing for the Mantel test analysis of the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris). The black diamond with a vertical line beneath it shows the actual correlation value from the Mantel (Figure S4) test using real data.
+A Mantel test plot showing the correlation between geographic distance (x-axis) and genetic distance (y-axis) for the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris L.). The regression line, y = 0.1 + 0.0002x, was also plotted.
+
+The Mantel test was conducted using the R script [Mantel_test_240216.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) from a genlight object made with the script [genlight_mantel.R](pop_gen_analyses/Mantel_Test/genlight_mantel.R). The script uses the implementation of the Mantel test in the R package [_ade4_](https://cran.r-project.org/web/packages/ade4/index.html).
+
 
 <img src="images/Figure_S7.png" width="500">
 
-This histogram was created using the [mantel_test.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) script.
-
 ### Figure S8
-Unweighted pair group method with arithmetic averaging (UPGMA) tree for the temporal panel. A reduced VCF file that included only temporal samples was made in the [Make_temporal_vcf.txt](pop_gen_analyses/UPGMA_Trees/Make_temporal_vcf.txt) script. A Genlight object was created and tree calculations were done in the [UPGMA__genlight_and_tree_temporal.R](pop_gen_analyses/UPGMA_Trees/UPGMA_genlight_and_tree_temporal.R) script. The tree was then plotted in the script [Plot_UPGMA_trees.R](pop_gen_analyses/UPGMA_Trees/Plot_UPGMA_trees.R) script.
+
+A histogram of the frequency of simulated correlation tests resulting from permutation testing for the Mantel test analysis of the Natural Stand collection of Northern Wild Rice (NWR; Zizania palustris). The black diamond with a vertical line beneath it shows the actual correlation value from the Mantel (Figure S4) test using real data.
 
 <img src="images/Figure_S8.png" width="500">
 
-### Figure S9
-Site spectrum frequency histograms for our a.) Natural Stand collection and b.) Cultivated collection of Northern Wild Rice (NWR; _Zizania palustris_ L.) based on 5,955 single nucleotide polymorphism (SNP) markers generated via genotyping-by-sequencing (GBS).<br>
-<img src="images/Figure_S9.png" width="500">
+This histogram was created using the [mantel_test.R](pop_gen_analyses/Mantel_Test/Mantel_test_240216.R) script.
 
-The figure was made using the [plot_site_spectrum_frequency.R](pop_gen_analyses/plot_site_spectrum_frequency.R) script. Calculations were done in Excel and can be found in the file **snp_matrices_with_SFS_calcs.xlsx**. I tried to link to it here, but the file size is too big (almost 70 Mb) so it is in our Google Drive and in our DRUM submissin. Briefly, the SNP matrix was arranged so that columns represent individuals (samples) and rows represent SNPs. Six colummns were added to the end of the SNP matrix (0=reference allele; 1=heterozygous; 2=alternate allele; NA=missing; Total=total number of individuals; Total_no_NA=total number of individuals with data). Two additional columns were added: ref_allele_freq and alt_allele_freq for reference allele frequency and alternate allele frequency, respectively. The reference allele frequency was calculated by adding $2\times ref count$ to the heterozygous count and dividing by _twice_ the total number of non-missing calls. Similarly, the alternate allele frequency was calculated by adding $2\times alt count$ to the heterozygous count and dividing by _twice_ the total number of non-missing calls. **Note:** we could also have done this by subtracting the ref allele count from 1, but this got us the same result. Also note that the reason we used twice the number of reference, alternate, and total counts is because NWR is a diploid organism  so each call represents two alleles and we are calculating _allele frequency_. We could also have reached the same result by keeping the reference, alternate, and total counts the same and only adding _half_ of the heterozygous counts to each calculation. We then counted the number of occurrences of each allele frequency in bins of 2 percent (e.g., 0.00-0.019, 0.02-0.039, 0.04-0.059, etc). _These_ numbers (calculated separately for Natural Stands and Cultivated Material) were hard-coded into the R script.
+### Figure S9
+Unweighted pair group method with arithmetic averaging (UPGMA) tree for the temporal panel. A reduced VCF file that included only temporal samples was made in the [Make_temporal_vcf.txt](pop_gen_analyses/UPGMA_Trees/Make_temporal_vcf.txt) script. A Genlight object was created and tree calculations were done in the [UPGMA__genlight_and_tree_temporal.R](pop_gen_analyses/UPGMA_Trees/UPGMA_genlight_and_tree_temporal.R) script. The tree was then plotted in the script [Plot_UPGMA_trees.R](pop_gen_analyses/UPGMA_Trees/Plot_UPGMA_trees.R) script.
